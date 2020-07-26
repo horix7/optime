@@ -1,0 +1,303 @@
+#root {
+  --main-color: rgb(1, 77, 139);
+}
+
+html {
+  font-family: 'Recursive', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+.mainHeader {
+  text-transform: capitalize;
+  text-align: start;
+  font-weight: lighter;
+  font-size: x-large;
+  margin-top: 30px;
+  padding: 7px;
+}
+
+.btnGr {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  margin: 10px;
+}
+
+.twPlaces {
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+
+.aboutHead {
+  font-size: x-large;
+
+  padding: 20px 0px 5px;
+  text-align: start;
+  font-weight: bold;
+}
+
+
+.aboutSub {
+  font-size: medium;
+  text-transform: capitalize;
+  text-align: start;
+
+}
+
+#about p {
+  font-size: smaller;
+  text-align: start;
+}
+.tablez {
+  text-align: start;
+}
+
+.tablez h5 {
+  padding: 10px;
+  font-weight: normal;
+}
+
+
+.starts {
+  text-align: start;
+}
+
+
+.holdi {
+  margin-top: 20px;
+  margin-left: 5px;
+
+}
+.space-up {
+  margin-top: 20px;
+}
+body {
+
+}
+
+.form1-holder {
+  text-align: center;
+  margin: 5% 30%;
+}
+
+.form2-holder {
+  text-align: end;
+  width: 80%;
+  margin: 10% 1%;
+  /* -webkit-box-shadow: 0 9px 6px -5px grey;
+  -moz-box-shadow: 0 9px 6px -5px grey; */
+}
+
+.mainForm {
+  box-shadow: 5px 3px 5px 1px rgba(128, 128, 128, 0.221);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.btnn22 {
+  border-radius: 20px;
+  width: 150px;
+  height: 30px;
+  font-size: small;
+background-color: white;
+border: none;
+margin-top: 20px;
+color: rgba(0, 0, 0, 0.847);
+box-shadow: 4px 3px 4px 1px rgba(128, 128, 128, 0.221);
+
+
+}
+
+#about {
+  width: 80%;
+}
+
+.btnn21 {
+  border-radius: 20px;
+  width: 100px;
+  height: 30px;
+  font-size: small;
+background-color: var(--main-color);
+border: none;
+margin-top: 20px;
+color: white;
+box-shadow: 4px 3px 4px 1px rgba(128, 128, 128, 0.221);
+
+
+}
+
+
+.btnn22:hover {
+  height: 35px;
+}
+
+
+.btnn21:hover {
+  height: 35px;
+}
+
+
+.form1-holder p{
+  text-align: start;
+}
+
+.twoOption {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  column-gap: 15px;
+  
+}
+
+.one-opt {
+  width: 100%;
+  background-color: white;
+  color: black;
+  box-shadow: 0px 3px 3px 2px rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: 0px 3px 3px 2px rgba(0, 0, 0, 0.16);
+  -webkit-box-shadow: 0px 3px 3px 2px rgba(0, 0, 0, 0.16);
+  padding: 20px;
+  font-size: large;
+  text-align: center;
+  /* height: 100px; */
+}
+
+.div-two {
+  display: grid;
+  grid-template-columns: 1fr  1fr;
+  column-gap: 10px;
+}
+
+.bg-primary1 {
+  background-color: rgba(151, 175, 206, 0.466);
+}
+
+.container11 {
+  background-color: white;
+  /* border: 1px solid black; */
+  /* margin: 20px; */
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  font-size: x-large;
+  padding: 10px;
+
+}
+
+.btnn {
+  width: 100%;
+  margin-top: 30px;
+  border-radius: 10px;
+  height: 40px;
+  background-color: rgb(1, 77, 139);
+  border: none;
+  color: white;
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+.calcsRez {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: rgba(1, 77, 139);
+  color: white;
+  padding: 10px;
+  height: 40px;
+  margin-bottom: 5px ;
+  border-radius: 5px;
+
+}
+
+.calcsRez p {
+  height: 20px;
+  /* padding: 10px; */
+
+}
+
+.about-us {
+  padding: 10px;
+  text-align: start;
+}
+
+.applianceN {
+  text-align: start;
+}
+
+.radios-end {
+  display: grid;
+  grid-template-columns: 70px 70px 70px;
+  column-gap: 30px;
+  text-align: center;
+}
+
+
+
+@media screen and (max-width: 1500px) {
+  .form1-holder {
+      text-align: center;
+      margin: 5% 25%;
+  }
+
+
+  .form2-holder {
+    margin: 10% 1%;
+}
+
+  .twoOption {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .one-opt {
+      font-size: medium;
+  }
+  
+}
+
+
+
+@media screen and (max-width: 1000px) {
+  .form1-holder {
+      text-align: center;
+      margin: 5% 10%;
+  }
+  .twoOption {
+      display: grid;
+      grid-template-columns:  1fr 1fr 1fr;
+  }
+
+
+
+  .one-opt {
+      font-size: small;
+  }
+
+
+
+ 
+  
+}
+
+
+  
+@media screen and (max-width: 800px) {
+  .form1-holder {
+      text-align: center;
+      margin: 10% 1%;
+  }
+  .div-two {
+      grid-template-columns:  1fr;
+  }
+
+  .twoOption {
+      display: grid;
+      grid-template-columns:  1fr  1fr;
+  }
+  
+}
+
+
+
+
+
