@@ -10,6 +10,7 @@ function App() {
     <div className="App">
       <Nav />
       <div className="twPlaces">
+        <p className="eefc">Energy Efficiency Online Calculator</p>
       <Calc />
       <About />
       </div>

@@ -4,7 +4,7 @@ let about = () => {
     return (
         <React.Fragment>
             
-            <div clasName="about-us" id="about">
+            <div className="about-us" id="about">
             <h1 className="aboutHead">
             Energy Efficiency Online Calculator (EEOC)
             </h1>
@@ -21,7 +21,7 @@ let about = () => {
             <strong>How do we calculate your energy efficiency?</strong>
             <br />
             In order to calculate efficiency, we apply the following formula:
-            η = Eout / Ein * 100%
+            <span className="spani">η = Eout / Ein * 100%</span>
             <br />
             <br />
 

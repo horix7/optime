@@ -1,0 +1,29 @@
+      axios({
+        method: 'get',
+        url:"https://optim-calc.firebaseio.com/apliances/-MDBC0Pnv7uc4pUXx8Vg.json",
+        })
+        .then( (response) => {
+          let headds = [...new Set(response.data.map(n => n["CATEGORY"]))]
+          let newData = []
+          headds.forEach(n => {
+           
+            let newObj = response.data.filter(k => k["CATEGORY"] == n).map(x => {
+              return {
+                appliance: x["DETAIL"],
+                output: x["OUTPUT"]
+              }
+            })
+
+             let addObj= [n, ...newObj]
+            
+            newData.push(addObj)
+
+          })
+          this.setState({
+            appli: newData
+          })
+
+          console.log(response.data, newData, headds)
+        })
+        .catch(() => {
+          alert("An Error Have Occured")

@@ -1,677 +1,643 @@
 [
-    {
-      "CATEGORY": "CATEGORY",
-      "DETAIL": "DETAIL",
-      "OUTPUT": "ESTIMATED ENERGY USAGE",
-      "COST": "ESTIMATED ENERGY COSTS**"
-    },
+  {
+    "CATEGORY": "Space heating, electric",
+    "DETAIL": "Portable heater (1500W)",
+    "OUTPUT": "1.5 kWh per hour",
+    "COST": "$0.20 per hour"
+  },
+  {
+    "CATEGORY": "Space heating, electric",
+    "DETAIL": "Baseboard heater (six foot unit) (250 W/foot)",
+    "OUTPUT": "1.5 kWh per hour",
+    "COST": "$0.20 per hour"
+  },
+  {
+    "CATEGORY": "Space heating, electric",
+    "DETAIL": "Heat pump heat strips",
+    "OUTPUT": "10 kWh per hour w/fan",
+    "COST": "$1.30 per hour"
+  },
+  {
+    "CATEGORY": "Space heating, electric",
+    "DETAIL": "Electric furnace",
+    "OUTPUT": "10.5 kWh per hour w/fan",
+    "COST": "$1.37 per hour"
+  },
 
-    {
-      "CATEGORY": "Space heating, electric",
-      "DETAIL": "Portable heater (1500W)",
-      "OUTPUT": "1.5 kWh per hour",
-      "COST": "$0.20 per hour"
-    },
-    {
-      "CATEGORY": "Space heating, electric",
-      "DETAIL": "Baseboard heater (six foot unit) (250 W/foot)",
-      "OUTPUT": "1.5 kWh per hour",
-      "COST": "$0.20 per hour"
-    },
-    {
-      "CATEGORY": "Space heating, electric",
-      "DETAIL": "Heat pump heat strips",
-      "OUTPUT": "10 kWh per hour w/fan",
-      "COST": "$1.30 per hour"
-    },
-    {
-      "CATEGORY": "Space heating, electric",
-      "DETAIL": "Electric furnace",
-      "OUTPUT": "10.5 kWh per hour w/fan",
-      "COST": "$1.37 per hour"
-    },
+  {
+    "CATEGORY": "Air Conditioning/ Cooling",
+    "DETAIL": "Window/wall (8kBtu) (120V–12 EER)",
+    "OUTPUT": "0.73 kWh per hour",
+    "COST": "$0.09 per hour"
+  },
+  {
+    "CATEGORY": "Air Conditioning/ Cooling",
+    "DETAIL": "Window/wall (18kBtu) (240V)",
+    "OUTPUT": "1.8 kWh per hour",
+    "COST": "$0.23 per hour"
+  },
+  {
+    "CATEGORY": "Air Conditioning/ Cooling",
+    "DETAIL": "Central (3 ton–12 SEER)",
+    "OUTPUT": "3.0 kWh per hour",
+    "COST": "$0.39 per hour"
+  },
+  {
+    "CATEGORY": "Air Conditioning/ Cooling",
+    "DETAIL": "Whole house fan",
+    "OUTPUT": "0.2–0.4 kWh per hour",
+    "COST": "$0.03–$0.05 per hour"
+  },
+  {
+    "CATEGORY": "Air Conditioning/ Cooling",
+    "DETAIL": "Pedestal fan",
+    "OUTPUT": "0.03 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+    "CATEGORY": "Air Conditioning/ Cooling",
+    "DETAIL": "Ceiling fan",
+    "OUTPUT": "0.025–0.075 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
 
-    {
-      "CATEGORY": "Air Conditioning/ Cooling",
-      "DETAIL": "Window/wall (8kBtu) (120V–12 EER)",
-      "OUTPUT": "0.73 kWh per hour",
-      "COST": "$0.09 per hour"
-    },
-    {
-      "CATEGORY": "Air Conditioning/ Cooling",
-      "DETAIL": "Window/wall (18kBtu) (240V)",
-      "OUTPUT": "1.8 kWh per hour",
-      "COST": "$0.23 per hour"
-    },
-    {
-      "CATEGORY": "Air Conditioning/ Cooling",
-      "DETAIL": "Central (3 ton–12 SEER)",
-      "OUTPUT": "3.0 kWh per hour",
-      "COST": "$0.39 per hour"
-    },
-    {
-      "CATEGORY": "Air Conditioning/ Cooling",
-      "DETAIL": "Whole house fan",
-      "OUTPUT": "0.2–0.4 kWh per hour",
-      "COST": "$0.03–$0.05 per hour"
-    },
-    {
-      "CATEGORY": "Air Conditioning/ Cooling",
-      "DETAIL": "Pedestal fan",
-      "OUTPUT": "0.03 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-      "CATEGORY": "Air Conditioning/ Cooling",
-      "DETAIL": "Ceiling fan",
-      "OUTPUT": "0.025–0.075 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-
-    {
-      "CATEGORY": "Water Heating (All uses)",
-      "DETAIL": "",
-      "OUTPUT": "",
-      "COST": ""
-    },
-    {
-      "CATEGORY": "Water Heating (All uses)",
-      "DETAIL": "Electric water heater",
-      "OUTPUT": "380–500 kWh per month",
-      "COST": "$49.40–$65.00 per month"
-    },
-    {
-      "CATEGORY": "Water Heating (All uses)",
-      "DETAIL": "Instantaneous (110 v 29 amp) @1gpm 70°F",
-      "OUTPUT": "380–500 kWh per month",
-      "COST": "$49.40–$65.00 per month"
-    },
-    {
-      "CATEGORY": "Water Heating (All uses)",
-      "DETAIL": "Instantaneous (240 v 50 amp) @2.5gpm 83°F",
-      "OUTPUT": "12 kWh per hour",
-      "COST": "$1.56 per hour"
-    },
-    {
-      "CATEGORY": "Water Heating (All uses)",
-      "DETAIL": "Heat pump (50–75 gal) water heater",
-      "OUTPUT": "77 kWh per month",
-      "COST": "$10.01 per hour"
-    },
-    {
-      "CATEGORY": "Water Heating (All uses)",
-      "DETAIL": "Heat pump (>75 gal) water heater",
-      "OUTPUT": "111.8 kWh per month",
-      "COST": "$14.53 per hour"
-    },
-    {
-       "CATEGORY": "Kitchen",
-      "DETAIL": "Oven",
-      "OUTPUT": "2.3 kWh per hour",
-      "COST": "$0.30 per hour"
-    },
-    {
-       "CATEGORY": "Kitchen",
-      "DETAIL": "Oven: surface",
-      "OUTPUT": "1–1.5 kWh per hour",
-      "COST": "$0.13–$0.20 per hour"
-    },
-    {
-       "CATEGORY": "Kitchen",
-      "DETAIL": "Oven: self-cleaning feature",
-      "OUTPUT": "6 kWh per hour cleaning",
-      "COST": "$0.78 per cleaning"
-    },
-    {
-       "CATEGORY": "Kitchen",
-      "DETAIL": "Microwave oven",
-      "OUTPUT": "0.12 kWh per 5 min",
-      "COST": "$0.02 per 5 min"
-    },
-    {
-       "CATEGORY": "Kitchen",
-      "DETAIL": "Broiler, portable electric",
-      "OUTPUT": "1.5 kWh per hour",
-      "COST": "$0.20 per hour"
-    },
-    {
-       "CATEGORY": "Kitchen",
-      "DETAIL": "Single serve coffee maker",
-      "OUTPUT": "0.26 kWh per brew",
-      "COST": "$0.03 per brew"
-    },
-    {
-      "CATEGORY": "Kitchen",
-      "DETAIL": "Coffee maker",
-      "OUTPUT": "0.12 kWh per brew",
-      "COST": "$0.02 per brew"
-    },
-    {
-      "CATEGORY": "Kitchen",
-      "DETAIL": "Coffee maker/brew, warmer on",
-      "OUTPUT": "0.4 kWh per hour",
-      "COST": "$0.05 per hour"
-    },
-    {
-      "CATEGORY": "Kitchen",
-      "DETAIL": "Dishwasher: normal cycle (not including hot water)",
-      "OUTPUT": "1–2.17 kWh per load",
-      "COST": "$0.13–$0.28 per load"
-    },
-    {
-      "CATEGORY": "Kitchen",
-      "DETAIL": "Dishwasher: Energy-saver cycle",
-      "OUTPUT": "0.5 kWh per load",
-      "COST": "$0.07 per load"
-    },
-    {
-      "CATEGORY": "Kitchen",
-      "DETAIL": "Toaster (2 slices)",
-      "OUTPUT": "0.04 kWh per use",
-      "COST": "Less than $0.01 per use"
-    },
-    {
-       "CATEGORY": "Kitchen",
-      "DETAIL": "Toaster oven",
-      "OUTPUT": "0.75 kWh–per hour",
-      "COST": "$0.10 per hour"
-    },
-    {
-       "CATEGORY": "Kitchen",
-      "DETAIL": "Waffle iron, 4 servings",
-      "OUTPUT": "0.33 kWh per use",
-      "COST": "$0.04 per use"
-    },
-   
-    {
-      "CATEGORY": "Kitchen",
-      "DETAIL": "Refrigerator (frost-free), 15 cu. ft. (1996 unit)",
-      "OUTPUT": "150 kWh per month",
-      "COST": "$19.50 per month"
-    },
-    {
-      "CATEGORY": "Kitchen",
-      "DETAIL": "Freezer (manual defrost), 15 cu. ft.",
-      "OUTPUT": "90 kWh per month",
-      "COST": "$11.70 per month"
-    },
-    {
-      "CATEGORY": "Kitchen",
-      "DETAIL": "ENERGY STAR Refrigerator, 14 cu. ft.",
-      "OUTPUT": "34.5 kWh per month",
-      "COST": "$ 4.49 per month"
-    },
-    {
-      "CATEGORY": "Kitchen",
-      "DETAIL": "ENERGY STAR Refrigerator (frost-free), 17 cu. ft.",
-      "OUTPUT": "35 kWh per month",
-      "COST": "$ 4.55 per month"
-    },
-    {
-      "CATEGORY": "Kitchen",
-      "DETAIL": "ENERGY STAR Refrigerator (frost-free), 19 cu. ft.",
-      "OUTPUT": "46 kWh per month",
-      "COST": "$ 5.98 per month"
-    },
-    {
-      "CATEGORY": "Kitchen",
-      "DETAIL": "ENERGY STAR Refrigerator (side by side) 21 cu. ft.",
-      "OUTPUT": "51 kWh per month",
-      "COST": "$ 6.63 per month"
-    },
-    {
-      "CATEGORY": "Kitchen",
-      "DETAIL": "ENERGY STAR Refrigerator (frost-free) 24 cu. ft.",
-      "OUTPUT": "54 kWh per month",
-      "COST": "$ 7.02 per month"
-    },
-    {
-      "CATEGORY": "Kitchen",
-      "DETAIL": "ENERGY STAR Refrigerator (side by side) 25 cu. ft.",
-      "OUTPUT": "60 kWh per month",
-      "COST": "$ 7.80 per month"
-    },
-
+  {
+    "CATEGORY": "Water Heating (All uses)",
+    "DETAIL": "Electric water heater",
+    "OUTPUT": "380–500 kWh per month",
+    "COST": "$49.40–$65.00 per month"
+  },
+  {
+    "CATEGORY": "Water Heating (All uses)",
+    "DETAIL": "Instantaneous (110 v 29 amp) @1gpm 70°F",
+    "OUTPUT": "380–500 kWh per month",
+    "COST": "$49.40–$65.00 per month"
+  },
+  {
+    "CATEGORY": "Water Heating (All uses)",
+    "DETAIL": "Instantaneous (240 v 50 amp) @2.5gpm 83°F",
+    "OUTPUT": "12 kWh per hour",
+    "COST": "$1.56 per hour"
+  },
+  {
+    "CATEGORY": "Water Heating (All uses)",
+    "DETAIL": "Heat pump (50–75 gal) water heater",
+    "OUTPUT": "77 kWh per month",
+    "COST": "$10.01 per hour"
+  },
+  {
+    "CATEGORY": "Water Heating (All uses)",
+    "DETAIL": "Heat pump (>75 gal) water heater",
+    "OUTPUT": "111.8 kWh per month",
+    "COST": "$14.53 per hour"
+  },
+  {
+     "CATEGORY": "Kitchen",
+    "DETAIL": "Oven",
+    "OUTPUT": "2.3 kWh per hour",
+    "COST": "$0.30 per hour"
+  },
+  {
+     "CATEGORY": "Kitchen",
+    "DETAIL": "Oven: surface",
+    "OUTPUT": "1–1.5 kWh per hour",
+    "COST": "$0.13–$0.20 per hour"
+  },
+  {
+     "CATEGORY": "Kitchen",
+    "DETAIL": "Oven: self-cleaning feature",
+    "OUTPUT": "6 kWh per hour cleaning",
+    "COST": "$0.78 per cleaning"
+  },
+  {
+     "CATEGORY": "Kitchen",
+    "DETAIL": "Microwave oven",
+    "OUTPUT": "0.12 kWh per 5 min",
+    "COST": "$0.02 per 5 min"
+  },
+  {
+     "CATEGORY": "Kitchen",
+    "DETAIL": "Broiler, portable electric",
+    "OUTPUT": "1.5 kWh per hour",
+    "COST": "$0.20 per hour"
+  },
+  {
+     "CATEGORY": "Kitchen",
+    "DETAIL": "Single serve coffee maker",
+    "OUTPUT": "0.26 kWh per brew",
+    "COST": "$0.03 per brew"
+  },
+  {
+    "CATEGORY": "Kitchen",
+    "DETAIL": "Coffee maker",
+    "OUTPUT": "0.12 kWh per brew",
+    "COST": "$0.02 per brew"
+  },
+  {
+    "CATEGORY": "Kitchen",
+    "DETAIL": "Coffee maker/brew, warmer on",
+    "OUTPUT": "0.4 kWh per hour",
+    "COST": "$0.05 per hour"
+  },
+  {
+    "CATEGORY": "Kitchen",
+    "DETAIL": "Dishwasher: normal cycle (not including hot water)",
+    "OUTPUT": "1–2.17 kWh per load",
+    "COST": "$0.13–$0.28 per load"
+  },
+  {
+    "CATEGORY": "Kitchen",
+    "DETAIL": "Dishwasher: Energy-saver cycle",
+    "OUTPUT": "0.5 kWh per load",
+    "COST": "$0.07 per load"
+  },
+  {
+    "CATEGORY": "Kitchen",
+    "DETAIL": "Toaster (2 slices)",
+    "OUTPUT": "0.04 kWh per use",
+    "COST": "Less than $0.01 per use"
+  },
+  {
+     "CATEGORY": "Kitchen",
+    "DETAIL": "Toaster oven",
+    "OUTPUT": "0.75 kWh–per hour",
+    "COST": "$0.10 per hour"
+  },
+  {
+     "CATEGORY": "Kitchen",
+    "DETAIL": "Waffle iron, 4 servings",
+    "OUTPUT": "0.33 kWh per use",
+    "COST": "$0.04 per use"
+  },
+ 
+  {
+    "CATEGORY": "Kitchen",
+    "DETAIL": "Refrigerator (frost-free), 15 cu. ft. (1996 unit)",
+    "OUTPUT": "150 kWh per month",
+    "COST": "$19.50 per month"
+  },
+  {
+    "CATEGORY": "Kitchen",
+    "DETAIL": "Freezer (manual defrost), 15 cu. ft.",
+    "OUTPUT": "90 kWh per month",
+    "COST": "$11.70 per month"
+  },
+  {
+    "CATEGORY": "Kitchen",
+    "DETAIL": "ENERGY STAR Refrigerator, 14 cu. ft.",
+    "OUTPUT": "34.5 kWh per month",
+    "COST": "$ 4.49 per month"
+  },
+  {
+    "CATEGORY": "Kitchen",
+    "DETAIL": "ENERGY STAR Refrigerator (frost-free), 17 cu. ft.",
+    "OUTPUT": "35 kWh per month",
+    "COST": "$ 4.55 per month"
+  },
+  {
+    "CATEGORY": "Kitchen",
+    "DETAIL": "ENERGY STAR Refrigerator (frost-free), 19 cu. ft.",
+    "OUTPUT": "46 kWh per month",
+    "COST": "$ 5.98 per month"
+  },
+  {
+    "CATEGORY": "Kitchen",
+    "DETAIL": "ENERGY STAR Refrigerator (side by side) 21 cu. ft.",
+    "OUTPUT": "51 kWh per month",
+    "COST": "$ 6.63 per month"
+  },
+  {
+    "CATEGORY": "Kitchen",
+    "DETAIL": "ENERGY STAR Refrigerator (frost-free) 24 cu. ft.",
+    "OUTPUT": "54 kWh per month",
+    "COST": "$ 7.02 per month"
+  },
+  {
+    "CATEGORY": "Kitchen",
+    "DETAIL": "ENERGY STAR Refrigerator (side by side) 25 cu. ft.",
+    "OUTPUT": "60 kWh per month",
+    "COST": "$ 7.80 per month"
+  },
+  {
+    "CATEGORY": "Television",
+    "DETAIL": "TV 40\"–50\"",
+    "OUTPUT": "0.071 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+    "CATEGORY": "Television",
+    "DETAIL": "TV 50\"–60\"",
+    "OUTPUT": "0.12 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+    "CATEGORY": "Television",
+    "DETAIL": "TV 60\"–75\"",
+    "OUTPUT": "0.15 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+    "CATEGORY": "Television",
+    "DETAIL": "TV >75\"",
+    "OUTPUT": "0.18 kWh per hour",
+    "COST": "$0.02 per hour"
+  },
+  {
+    "CATEGORY": "OLED/4k",
+    "DETAIL": "OLED/4K 20\"–30\"",
+    "OUTPUT": "0.023 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+    "CATEGORY": "OLED/4k",
+    "DETAIL": "OLED/4K 30\"–40\"",
+    "OUTPUT": "0.045 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+    "CATEGORY": "OLED/4k",
+    "DETAIL": "OLED/4K >40\"",
+    "OUTPUT": "0.14 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+    "CATEGORY": "OLED/4k",
+    "DETAIL": "OLED/4K 20\"–30\"",
+    "OUTPUT": "0.024 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+      "CATEGORY": "LED/HDTV/720P",
+    "DETAIL": "LED/HDTV/720P >30\"",
+    "OUTPUT": "0.035 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+    "CATEGORY": "LED/HDTV/1080P",
+    "DETAIL": "LED/HDTV/1080p 20\"–30\"",
+    "OUTPUT": "0.014 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+    "CATEGORY": "LED/HDTV/1080P",
+    "DETAIL": "LED/HDTV/1080P 30\"–40\"",
+    "OUTPUT": "0.019 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+    "CATEGORY": "LED/HDTV/1080P",
+    "DETAIL": "LED/HDTV/1080P >40\"",
+    "OUTPUT": "0.025 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
   
-    {
-      "CATEGORY": "Television",
-      "DETAIL": "LED/4k UHD",
-      "OUTPUT": "",
-      "COST": ""
-    },
-    {
-      "CATEGORY": "Television",
-      "DETAIL": "40\"–50\"",
-      "OUTPUT": "0.071 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-      "CATEGORY": "Television",
-      "DETAIL": "50\"–60\"",
-      "OUTPUT": "0.12 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-      "CATEGORY": "Television",
-      "DETAIL": "60\"–75\"",
-      "OUTPUT": "0.15 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-      "CATEGORY": "Television",
-      "DETAIL": ">75\"",
-      "OUTPUT": "0.18 kWh per hour",
-      "COST": "$0.02 per hour"
-    },
-    {
-      "CATEGORY": "OLED/4k",
-      "DETAIL": "20\"–30\"",
-      "OUTPUT": "0.023 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-      "CATEGORY": "OLED/4k",
-      "DETAIL": "30\"–40\"",
-      "OUTPUT": "0.045 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-      "CATEGORY": "OLED/4k",
-      "DETAIL": ">40\"",
-      "OUTPUT": "0.14 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-      "CATEGORY": "OLED/4k",
-      "DETAIL": "20\"–30\"",
-      "OUTPUT": "0.024 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-        "CATEGORY": "LED/HDTV/720P",
-      "DETAIL": ">30\"",
-      "OUTPUT": "0.035 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-      "CATEGORY": "LED/HDTV/1080P",
-      "DETAIL": "20\"–30\"",
-      "OUTPUT": "0.014 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-      "CATEGORY": "LED/HDTV/1080P",
-      "DETAIL": "30\"–40\"",
-      "OUTPUT": "0.019 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-      "CATEGORY": "LED/HDTV/1080P",
-      "DETAIL": ">40\"",
-      "OUTPUT": "0.025 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    
-    {
-     "CATEGORY": "Plasma",
-      "DETAIL": "40\"–49\"",
-      "OUTPUT": "0.4 kWh per hour",
-      "COST": "$0.05 per hour"
-    },
-    {
-     "CATEGORY": "Plasma",
-      "DETAIL": ">50\"",
-      "OUTPUT": "0.48 kWh per hour",
-      "COST": "$0.06 per hour"
-    },
-    
-    {
-     "CATEGORY": "LCD",
-      "DETAIL": "40\"–49\"",
-      "OUTPUT": "0.012 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-     "CATEGORY": "LCD",
-      "DETAIL": ">50\"",
-      "OUTPUT": "0.016 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    
-    {
-      "CATEGORY": "Recording/Video Playing Devices",
-      "DETAIL": "",
-      "OUTPUT": "",
-      "COST": ""
-    },
-    {
-      "CATEGORY": "Recording/Video Playing Devices",
-      "DETAIL": "Cable box",
-      "OUTPUT": "139 kWh per year",
-      "COST": "$18.07 per year"
-    },
-    {
-      "CATEGORY": "Recording/Video Playing Devices",
-      "DETAIL": "Roku",
-      "OUTPUT": "26.2 kWh per year",
-      "COST": "$3.41 per year"
-    },
-    {
-      "CATEGORY": "Recording/Video Playing Devices",
-      "DETAIL": "Thin client",
-      "OUTPUT": "52.6 kWh per year",
-      "COST": "$6.84 per year"
-    },
-    {
-        "CATEGORY": "Gaming",
-      "DETAIL": "Nintendo Switch",
-      "OUTPUT": "157.7 kWh per year",
-      "COST": "$20.50 per year"
-    },
-    {
-       "CATEGORY": "Gaming",
-      "DETAIL": "Xbox One",
-      "OUTPUT": "233 kWh per year",
-      "COST": "$30.29 per year"
-    },
-    {
-       "CATEGORY": "Gaming",
-      "DETAIL": "PlayStation 4",
-      "OUTPUT": "181 kWh per year",
-      "COST": "$23.53 per year"
-    },
-    {
-       "CATEGORY": "Gaming",
-      "DETAIL": "Wii U",
-      "OUTPUT": "37 kWh per year",
-      "COST": "$4.81 per year"
-    },
-    {
-      "CATEGORY": "Computers",
-      "DETAIL": "Desktop computer",
-      "OUTPUT": "0.06–kWh per hour",
-      "COST": "$0.01–$0.03 per hour"
-    },
-    {
-      "CATEGORY": "Computers",
-      "DETAIL": "Desktop computer on sleep/standby mode",
-      "OUTPUT": "0.001–0.006 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-      "CATEGORY": "Computers",
-      "DETAIL": "Laptop",
-      "OUTPUT": "0.02–0.05 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-      "CATEGORY": "Computers",
-      "DETAIL": "Monitor - 17\" CRT",
-      "OUTPUT": "0.08 kWh per hour",
-      "COST": "$0.01 per hour"
-    },
-    {
-      "CATEGORY": "Computers",
-      "DETAIL": "Monitor - 17\" LCD",
-      "OUTPUT": "0.04 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    
-    {
-      "CATEGORY": "Other",
-      "DETAIL": "Speakers (25 Watts x 2) normal volume",
-      "OUTPUT": "0.05 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-      "CATEGORY": "Other",
-      "DETAIL": "Stereo",
-      "OUTPUT": "0.05 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-      "CATEGORY": "Other",
-      "DETAIL": "Radio, CD player",
-      "OUTPUT": "0.02 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-      "CATEGORY": "Other",
-      "DETAIL": "Tablet",
-      "OUTPUT": "12 kWh per year",
-      "COST": "$1.56 per year"
-    },
-    
-   
-    {
-     "CATEGORY": "Compact fluorescent (CFL)/LED",
-      "DETAIL": "CFL/LED (8 W) equivalent to 25 W incandescent",
-      "OUTPUT": "0.008 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-     "CATEGORY": "Compact fluorescent (CFL)/LED",
-      "DETAIL": "CFL/LED (11 W) equivalent to 40 W incandescent",
-      "OUTPUT": "0.01 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-     "CATEGORY": "Compact fluorescent (CFL)/LED",
-      "DETAIL": "CFL/LED (15 W) equivalent to 60 W incandescent",
-      "OUTPUT": "0.015 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-     "CATEGORY": "Compact fluorescent (CFL)/LED",
-      "DETAIL": "CFL/LED (20 W) equivalent to 75 W incandescent",
-      "OUTPUT": "0.02 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-     "CATEGORY": "Compact fluorescent (CFL)/LED",
-      "DETAIL": "CFL/LED (27 W) equivalent to 100 W incandescent",
-      "OUTPUT": "0.027 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-     "CATEGORY": "Compact fluorescent (CFL)/LED",
-      "DETAIL": "CFL/LED (38 W) equivalent to 150 W incandescent",
-      "OUTPUT": "0.038 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-        "CATEGORY": "Compact fluorescent (CFL)/LED",
-      "DETAIL": "Heat Lamp",
-      "OUTPUT": "0.04 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-      "CATEGORY": "Halogen",
-      "DETAIL": "Halogen (300 W)",
-      "OUTPUT": "0.3 kWh per hour",
-      "COST": "$0.04 per hour"
-    },
-   
-    {
-    "CATEGORY": "Laundry",
-      "DETAIL": "Clothes dryer (light load vs. heavy load)",
-      "OUTPUT": "2.5–4 kWh per load",
-      "COST": "$0.33–$0.52 per load"
-    },
-    {
-    "CATEGORY": "Laundry",
-      "DETAIL": "Non ENERGY STAR-Qualified",
-      "OUTPUT": "2.28 kWh per load",
-      "COST": "$0.30 per load"
-    },
-    {
-    "CATEGORY": "Laundry",
-      "DETAIL": "ENERGY STAR-Qualified",
-      "OUTPUT": "1.90 kWh per load",
-      "COST": "$0.25 per load"
-    },
-    {
-    "CATEGORY": "Laundry",
-      "DETAIL": "Heat pump dryer",
-      "OUTPUT": "0.54 kWh per load",
-      "COST": "$0.07 per load"
-    },
-    {
-    "CATEGORY": "Laundry",
-      "DETAIL": "Warm wash, cold rinse",
-      "OUTPUT": "2.3 kWh per load",
-      "COST": "$0.30 per load"
-    },
-    {
-    "CATEGORY": "Laundry",
-      "DETAIL": "Hot wash, warm rinse",
-      "OUTPUT": "6.3 kWh per load",
-      "COST": "$0.82 per load"
-    },
-    {
-     "CATEGORY": "Household Goods",
-      "DETAIL": "Vacuum cleaner",
-      "OUTPUT": "0.75 kWh per hour",
-      "COST": "$0.10 per hour"
-    },
-    {
-     "CATEGORY": "Household Goods",
-      "DETAIL": "Dyson vacuum cleaner",
-      "OUTPUT": "0.23 kWh per hour",
-      "COST": "$0.03 per hour"
-    },
-    {
-     "CATEGORY": "Household Goods",
-      "DETAIL": "Iron",
-      "OUTPUT": "1.08 kWh per hour",
-      "COST": "$0.14 per hour"
-    },
-    {
-     "CATEGORY": "Household Goods",
-      "DETAIL": "Clock",
-      "OUTPUT": "2–4 kWh per month",
-      "COST": "$0.26–$0.52 per month"
-    },
-    {
-     "CATEGORY": "Household Goods",
-      "DETAIL": "Night light (4w on 12-hours/day)",
-      "OUTPUT": "1.44 kWh per month",
-      "COST": "$0.19 per month"
-    },
-    {
-     "CATEGORY": "Household Goods",
-      "DETAIL": "Electric blanket: Twin",
-      "OUTPUT": "0.5 kWh/night",
-      "COST": "$0.07/night"
-    },
-    {
-     "CATEGORY": "Household Goods",
-      "DETAIL": "Electric blanket: Double/Queen",
-      "OUTPUT": "0.75 kWh/night",
-      "COST": "$0.10/night"
-    },
-    {
-     "CATEGORY": "Household Goods",
-      "DETAIL": "Electric blanket: King",
-      "OUTPUT": "1 kWh/night",
-      "COST": "$0.13/night"
-    },
-    {
-     "CATEGORY": "Household Goods",
-      "DETAIL": "Aquarium",
-      "OUTPUT": "0.05–1.21kWh per hour",
-      "COST": "$0.01–$0.16 per hour"
-    },
-    {
-     "CATEGORY": "Household Goods",
-      "DETAIL": "Robot vacuum cleaner",
-      "OUTPUT": "0.007 kWh per hour",
-      "COST": "Less than $0.01 per hour"
-    },
-    {
-      "CATEGORY": "Bathroom",
-      "DETAIL": "",
-      "OUTPUT": "",
-      "COST": ""
-    },
-    {
-     "CATEGORY": "Bathroom",
-      "DETAIL": "Hair dryer",
-      "OUTPUT": "1.5 kWh per hour",
-      "COST": "$0.20 per hour"
-    },
-    {
-     "CATEGORY": "Bathroom",
-      "DETAIL": "Curling iron",
-      "OUTPUT": "0.15 kWh per hour",
-      "COST": "$0.02 per hour"
-    },
-    {
-     "CATEGORY": "Bathroom",
-      "DETAIL": "Whirlpool tub",
-      "OUTPUT": "1.8 kWh per hour",
-      "COST": "$0.23 per hour"
-    },
-    {
-       "CATEGORY": "Swimming Pool",
-      "DETAIL": "Sweep pump (3/4 hp)",
-      "OUTPUT": "0.56 kWh per hour",
-      "COST": "$0.07 per hour"
-    },
-    {
-       "CATEGORY": "Swimming Pool",
-      "DETAIL": "Filter pump (1/2–1 hp)",
-      "OUTPUT": "1.12 kWh per hour",
-      "COST": "$0.15 per hour"
-    },
-    {
-       "CATEGORY": "Swimming Pool",
-      "DETAIL": "Filter pump (2 hp)",
-      "OUTPUT": "1.5 kWh per hour",
-      "COST": "$0.20 per hour"
-    },
-    {
-       "CATEGORY": "Swimming Pool",
-      "DETAIL": "Single-speed pump",
-      "OUTPUT": "0.54 kWh per hour",
-      "COST": "$0.07 per hour"
-    },
-    {
-      "CATEGORY": "",
-      "DETAIL": "Dual-speed pump",
-      "OUTPUT": "0.29 kWh per hour",
-      "COST": "$0.04 per hour"
-    },
-    {
-      "CATEGORY": "",
-      "DETAIL": "Variable-speed pump",
-      "OUTPUT": "0.12 kWh per hour",
-      "COST": "$0.02 per hour"
-    },
-    
-    {
-        "CATEGORY": "Spa/Hot Tub",
-      "DETAIL": "Electric heater (1500 W)",
-      "OUTPUT": "1.5 kWh per hour",
-      "COST": "$0.20 per hour"
-    },
-    
-    {
-      "CATEGORY": "Medical Equipment",
-      "DETAIL": "Nebulizer",
-      "OUTPUT": "1 kWh per hour",
-      "COST": "$0.13 per hour"
-    },
-    {
-      "CATEGORY": "Medical Equipment",
-      "DETAIL": "Oxygen concentrator",
-      "OUTPUT": "0.46 kWh per hour",
-      "COST": "$0.06 per hour"
-    },
-    {
-      "CATEGORY": "Medical Equipment",
-      "DETAIL": "Sleep apnea machine (CPAP)",
-      "OUTPUT": "0.2 kWh per hour",
-      "COST": "$0.03 per hour"
-    }
-   ]
+  {
+   "CATEGORY": "Plasma",
+    "DETAIL": "Plasma TV 40\"–49\"",
+    "OUTPUT": "0.4 kWh per hour",
+    "COST": "$0.05 per hour"
+  },
+  {
+   "CATEGORY": "Plasma",
+    "DETAIL": "Plasma TV >50\"",
+    "OUTPUT": "0.48 kWh per hour",
+    "COST": "$0.06 per hour"
+  },
+  
+  {
+   "CATEGORY": "LCD",
+    "DETAIL": "LCD 40\"–49\"",
+    "OUTPUT": "0.012 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+   "CATEGORY": "LCD",
+    "DETAIL": "LCD >50\"",
+    "OUTPUT": "0.016 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+    "CATEGORY": "Recording/Video Playing Devices",
+    "DETAIL": "Cable box",
+    "OUTPUT": "139 kWh per year",
+    "COST": "$18.07 per year"
+  },
+  {
+    "CATEGORY": "Recording/Video Playing Devices",
+    "DETAIL": "Roku",
+    "OUTPUT": "26.2 kWh per year",
+    "COST": "$3.41 per year"
+  },
+  {
+    "CATEGORY": "Recording/Video Playing Devices",
+    "DETAIL": "Thin client",
+    "OUTPUT": "52.6 kWh per year",
+    "COST": "$6.84 per year"
+  },
+  {
+      "CATEGORY": "Gaming",
+    "DETAIL": "Nintendo Switch",
+    "OUTPUT": "157.7 kWh per year",
+    "COST": "$20.50 per year"
+  },
+  {
+     "CATEGORY": "Gaming",
+    "DETAIL": "Xbox One",
+    "OUTPUT": "233 kWh per year",
+    "COST": "$30.29 per year"
+  },
+  {
+     "CATEGORY": "Gaming",
+    "DETAIL": "PlayStation 4",
+    "OUTPUT": "181 kWh per year",
+    "COST": "$23.53 per year"
+  },
+  {
+     "CATEGORY": "Gaming",
+    "DETAIL": "Wii U",
+    "OUTPUT": "37 kWh per year",
+    "COST": "$4.81 per year"
+  },
+  {
+    "CATEGORY": "Computers",
+    "DETAIL": "Desktop computer",
+    "OUTPUT": "0.06–kWh per hour",
+    "COST": "$0.01–$0.03 per hour"
+  },
+  {
+    "CATEGORY": "Computers",
+    "DETAIL": "Desktop computer on sleep/standby mode",
+    "OUTPUT": "0.001–0.006 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+    "CATEGORY": "Computers",
+    "DETAIL": "Laptop",
+    "OUTPUT": "0.02–0.05 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+    "CATEGORY": "Computers",
+    "DETAIL": "Monitor - 17\" CRT",
+    "OUTPUT": "0.08 kWh per hour",
+    "COST": "$0.01 per hour"
+  },
+  {
+    "CATEGORY": "Computers",
+    "DETAIL": "Monitor - 17\" LCD",
+    "OUTPUT": "0.04 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  
+  {
+    "CATEGORY": "Other",
+    "DETAIL": "Speakers (25 Watts x 2) normal volume",
+    "OUTPUT": "0.05 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+    "CATEGORY": "Other",
+    "DETAIL": "Stereo",
+    "OUTPUT": "0.05 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+    "CATEGORY": "Other",
+    "DETAIL": "Radio, CD player",
+    "OUTPUT": "0.02 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+    "CATEGORY": "Other",
+    "DETAIL": "Tablet",
+    "OUTPUT": "12 kWh per year",
+    "COST": "$1.56 per year"
+  },
+  
+ 
+  {
+   "CATEGORY": "Compact fluorescent (CFL)/LED",
+    "DETAIL": "CFL/LED (8 W) equivalent to 25 W incandescent",
+    "OUTPUT": "0.008 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+   "CATEGORY": "Compact fluorescent (CFL)/LED",
+    "DETAIL": "CFL/LED (11 W) equivalent to 40 W incandescent",
+    "OUTPUT": "0.01 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+   "CATEGORY": "Compact fluorescent (CFL)/LED",
+    "DETAIL": "CFL/LED (15 W) equivalent to 60 W incandescent",
+    "OUTPUT": "0.015 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+   "CATEGORY": "Compact fluorescent (CFL)/LED",
+    "DETAIL": "CFL/LED (20 W) equivalent to 75 W incandescent",
+    "OUTPUT": "0.02 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+   "CATEGORY": "Compact fluorescent (CFL)/LED",
+    "DETAIL": "CFL/LED (27 W) equivalent to 100 W incandescent",
+    "OUTPUT": "0.027 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+   "CATEGORY": "Compact fluorescent (CFL)/LED",
+    "DETAIL": "CFL/LED (38 W) equivalent to 150 W incandescent",
+    "OUTPUT": "0.038 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+      "CATEGORY": "Compact fluorescent (CFL)/LED",
+    "DETAIL": "Heat Lamp",
+    "OUTPUT": "0.04 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+    "CATEGORY": "Halogen",
+    "DETAIL": "Halogen (300 W)",
+    "OUTPUT": "0.3 kWh per hour",
+    "COST": "$0.04 per hour"
+  },
+ 
+  {
+  "CATEGORY": "Laundry",
+    "DETAIL": "Clothes dryer (light load vs. heavy load)",
+    "OUTPUT": "2.5–4 kWh per load",
+    "COST": "$0.33–$0.52 per load"
+  },
+  {
+  "CATEGORY": "Laundry",
+    "DETAIL": "Non ENERGY STAR-Qualified",
+    "OUTPUT": "2.28 kWh per load",
+    "COST": "$0.30 per load"
+  },
+  {
+  "CATEGORY": "Laundry",
+    "DETAIL": "ENERGY STAR-Qualified",
+    "OUTPUT": "1.90 kWh per load",
+    "COST": "$0.25 per load"
+  },
+  {
+  "CATEGORY": "Laundry",
+    "DETAIL": "Heat pump dryer",
+    "OUTPUT": "0.54 kWh per load",
+    "COST": "$0.07 per load"
+  },
+  {
+  "CATEGORY": "Laundry",
+    "DETAIL": "Warm wash, cold rinse",
+    "OUTPUT": "2.3 kWh per load",
+    "COST": "$0.30 per load"
+  },
+  {
+  "CATEGORY": "Laundry",
+    "DETAIL": "Hot wash, warm rinse",
+    "OUTPUT": "6.3 kWh per load",
+    "COST": "$0.82 per load"
+  },
+  {
+   "CATEGORY": "Household Goods",
+    "DETAIL": "Vacuum cleaner",
+    "OUTPUT": "0.75 kWh per hour",
+    "COST": "$0.10 per hour"
+  },
+  {
+   "CATEGORY": "Household Goods",
+    "DETAIL": "Dyson vacuum cleaner",
+    "OUTPUT": "0.23 kWh per hour",
+    "COST": "$0.03 per hour"
+  },
+  {
+   "CATEGORY": "Household Goods",
+    "DETAIL": "Iron",
+    "OUTPUT": "1.08 kWh per hour",
+    "COST": "$0.14 per hour"
+  },
+  {
+   "CATEGORY": "Household Goods",
+    "DETAIL": "Clock",
+    "OUTPUT": "2–4 kWh per month",
+    "COST": "$0.26–$0.52 per month"
+  },
+  {
+   "CATEGORY": "Household Goods",
+    "DETAIL": "Night light (4w on 12-hours/day)",
+    "OUTPUT": "1.44 kWh per month",
+    "COST": "$0.19 per month"
+  },
+  {
+   "CATEGORY": "Household Goods",
+    "DETAIL": "Electric blanket: Twin",
+    "OUTPUT": "0.5 kWh/night",
+    "COST": "$0.07/night"
+  },
+  {
+   "CATEGORY": "Household Goods",
+    "DETAIL": "Electric blanket: Double/Queen",
+    "OUTPUT": "0.75 kWh/night",
+    "COST": "$0.10/night"
+  },
+  {
+   "CATEGORY": "Household Goods",
+    "DETAIL": "Electric blanket: King",
+    "OUTPUT": "1 kWh/night",
+    "COST": "$0.13/night"
+  },
+  {
+   "CATEGORY": "Household Goods",
+    "DETAIL": "Aquarium",
+    "OUTPUT": "0.05–1.21kWh per hour",
+    "COST": "$0.01–$0.16 per hour"
+  },
+  {
+   "CATEGORY": "Household Goods",
+    "DETAIL": "Robot vacuum cleaner",
+    "OUTPUT": "0.007 kWh per hour",
+    "COST": "Less than $0.01 per hour"
+  },
+  {
+   "CATEGORY": "Bathroom",
+    "DETAIL": "Hair dryer",
+    "OUTPUT": "1.5 kWh per hour",
+    "COST": "$0.20 per hour"
+  },
+  {
+   "CATEGORY": "Bathroom",
+    "DETAIL": "Curling iron",
+    "OUTPUT": "0.15 kWh per hour",
+    "COST": "$0.02 per hour"
+  },
+  {
+   "CATEGORY": "Bathroom",
+    "DETAIL": "Whirlpool tub",
+    "OUTPUT": "1.8 kWh per hour",
+    "COST": "$0.23 per hour"
+  },
+  {
+     "CATEGORY": "Swimming Pool",
+    "DETAIL": "Sweep pump (3/4 hp)",
+    "OUTPUT": "0.56 kWh per hour",
+    "COST": "$0.07 per hour"
+  },
+  {
+     "CATEGORY": "Swimming Pool",
+    "DETAIL": "Filter pump (1/2–1 hp)",
+    "OUTPUT": "1.12 kWh per hour",
+    "COST": "$0.15 per hour"
+  },
+  {
+     "CATEGORY": "Swimming Pool",
+    "DETAIL": "Filter pump (2 hp)",
+    "OUTPUT": "1.5 kWh per hour",
+    "COST": "$0.20 per hour"
+  },
+  {
+     "CATEGORY": "Swimming Pool",
+    "DETAIL": "Single-speed pump",
+    "OUTPUT": "0.54 kWh per hour",
+    "COST": "$0.07 per hour"
+  },
+  {
+    "CATEGORY": "Swimming Pool",
+    "DETAIL": "Dual-speed pump",
+    "OUTPUT": "0.29 kWh per hour",
+    "COST": "$0.04 per hour"
+  },
+  {
+    "CATEGORY": "Swimming Pool",
+    "DETAIL": "Variable-speed pump",
+    "OUTPUT": "0.12 kWh per hour",
+    "COST": "$0.02 per hour"
+  },
+  
+  {
+      "CATEGORY": "Spa/Hot Tub",
+    "DETAIL": "Electric heater (1500 W)",
+    "OUTPUT": "1.5 kWh per hour",
+    "COST": "$0.20 per hour"
+  },
+  
+  {
+    "CATEGORY": "Medical Equipment",
+    "DETAIL": "Nebulizer",
+    "OUTPUT": "1 kWh per hour",
+    "COST": "$0.13 per hour"
+  },
+  {
+    "CATEGORY": "Medical Equipment",
+    "DETAIL": "Oxygen concentrator",
+    "OUTPUT": "0.46 kWh per hour",
+    "COST": "$0.06 per hour"
+  },
+  {
+    "CATEGORY": "Medical Equipment",
+    "DETAIL": "Sleep apnea machine (CPAP)",
+    "OUTPUT": "0.2 kWh per hour",
+    "COST": "$0.03 per hour"
+  }
+ ]

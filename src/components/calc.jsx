@@ -1,7 +1,8 @@
 import React, {Component} from "react"
 import axios from "axios"
-
-
+import Aappliances from '../appliances.json'
+import Modal from "react-modal"
+import Results from './results'
 class Calc extends Component {
   
     state = {
@@ -10,94 +11,235 @@ class Calc extends Component {
         from: null,
         to: null,
         hours: null,
-        type: "C-D",
-        output: null
+        type: null,
+        output: null,
+        COST: 0
       },
+      typeCurrent: null,
       current: null,
       appliances: [],
       other: true,
       fetch: false,
-      appli: []
+      appli: [],
+      results: null,
+      openModal: false
     }
+
 
 
     componentDidMount() {
       this.getAppliances()
     }
 
+    
+
+    generateRezults = () => {
+try {
+  
+  let oldAppliances =[...this.state.appliances]
+  let usedWatt = oldAppliances.map(n => n.powerUsage).reduce((a,b) => a + b)
+  let averageEffiency = oldAppliances.map(n => n.output !== "NaN%" ? parseFloat(n.output.toString().split("%")[0]) : 0).reduce((a,b) => a + b) / oldAppliances.length
+
+  return {
+    "Total Energy Usage": usedWatt,
+    "Home Average Energy Efficiency": averageEffiency,
+    "Home Energy Cost": 0 
+  }
+} catch(err) {
+  console.log(err)
+  alert("You Have Zero Caliculation Made")
+
+}
+
+
+    }
+
+
+    checkUser = () => {
+      if(localStorage.userInfo  && localStorage.userInfo !== "null") {
+        return 
+      } else {
+        const name = prompt("FIRST TIME USER \nProvide Your Name to continue")
+        const location = prompt("FIRST TIME USER \nProvide Your location (Country) to Make caliculation")
+
+       if(name !== "" && location !== "") {
+        localStorage.setItem("userInfo", JSON.stringify({username: name, location: location}))
+       }
+
+      }
+    }
+
     getAppliances = () => {
 
-      axios({
-        method: 'get',
-        url:"https://optim-calc.firebaseio.com/apliances/-MDBC0Pnv7uc4pUXx8Vg.json",
-        })
-        .then( (response) => {
-          let headds = [...new Set(response.data.map(n => n["CATEGORY"]))]
+
+          let headds = [...new Set(Aappliances.map(n => n["CATEGORY"]))]
           let newData = []
-          headds.forEach(n => {
            
-            let newObj = response.data.filter(k => k["CATEGORY"] == n).map(x => {
-              return {
-                appliance: x["DETAIL"],
-                output: x["OUTPUT"]
-              }
-            })
+          headds.forEach(n => {
 
-             let addObj= [n, ...newObj]
-            
-            newData.push(addObj)
-
-          })
-          this.setState({
-            appli: newData
+          let newObj = Aappliances.filter(k => k["CATEGORY"] == n).map(x => {
+            return {
+              appliance: x["DETAIL"],
+              output: x["OUTPUT"],
+              cost: x["COST"]
+            }
           })
 
-          console.log(response.data, newData, headds)
+           let addObj= [n, ...newObj]
+          
+          newData.push(addObj)
+
         })
-        .catch( () => {
-          alert("An Error Have Occured")
+        this.setState({
+          appli: newData
         })
+
+
+        
+    }
+
+    caliculateEfficiency = () => {
+      const hours =  new Date(this.state.calInfo.to).getTime() -  new Date(this.state.calInfo.from).getTime()
+      const rationUsage = this.state.calInfo.hours / 24
+      let allHours = hours * rationUsage
+      const inputEnergy = parseFloat(this.state.calInfo.output.split("kWh")[0])
+      let powerUsage = allHours * inputEnergy
+
+      let allPower = inputEnergy * hours
+
+      let Effieciency = (powerUsage / allPower) * 100
+
+      let getMoney = (element) => {
+       if(typeof element == "string") {
+        element.split(' ').forEach(n => {
+          let somee = n.split('').some(x => x == "$")
+          if(somee) {
+            return n
+          }else {
+            return 0
+          }
+        })
+       } else {
+         return 0
+       }
+      }
+
+      console.log(getMoney(this.state.calInfo.COST))
+
+      let calcEff;
+
+      if(this.state.calInfo.type == "A-B") {
+        calcEff = 0.72
+      }else if (this.state.calInfo.type == "D-C")  {
+        calcEff = 0.72 * 2
+      }else if (this.state.calInfo.type == "E-F")  {
+        calcEff = 0.72 * 3
+      }
+
+
+      return {
+        appliance: this.state.current,
+        output: (Effieciency * calcEff) + "%",
+        powerUsage: allPower - powerUsage,
+        moneyUsage: getMoney(this.state.calInfo.COST)
+
+      }
+      
+
+      
     }
 
     addCaliculations = () => {
+          this.setState({
+            fetch: true
+          })
+
+          document.querySelectorAll("input").forEach(n => n.value = null)
+          this.setState({
+            fetch: false
+          })
+
+          document.getElementById("8times").click()
+
+    }
+
+    addDatabase = () => {
+      let dateSplit = new Date().toString().split(" ")
+
+      let userIInfo = JSON.parse(localStorage.userInfo)
+      if(localStorage.userInfo == "null") {
+        userIInfo = { username: "anonymous", location: "Unavailable"}
+      }
+
       this.setState({
-        fetch: true
+        fetch: true,
+        results: this.generateRezults()
       })
+
+      if(this.state.appliances.length > 0) {
+        
       axios({
         method: 'post',
-        url:"https://optim-calc.firebaseio.com/apliances/g1WBpIy0wYzFV3nUqbXq.json",
+        url:"https://optim-calc.firebaseio.com/apliances/caliculations.json",
 
-        data: this.state.calInfo,
+        data: {
+          user: userIInfo,
+          date: [dateSplit[1], dateSplit[2], dateSplit[3] ].join(" "),
+          data: this.state.appliances,
+          summary: this.state.results
+        },
         headers: {'Content-Type': "application/json" }
         })
         .then(response => {
+          
+          let oldModal = this.state.openModal
+
           this.setState({
+            openModal: !oldModal,
             fetch: false
           })
-              document.getElementById("8times").click()
+  
         }).catch(err => {
+          localStorage.setItem("unsaved", JSON.stringify({
+            date: [ dateSplit[1], dateSplit[2], dateSplit[3] ].join(" "),
+            data: this.state.appliances
+          }))
+
+          alert("Something Went Wrong \nMake Sure Your Internet Is On")
+
           this.setState({
             fetch: false
           })
-          alert("An Error Has Occured ")
         })
+      }else {
+       console.log("No Data")
+       setTimeout(() => {
+        this.setState({
+          fetch: false
+        })
+       }, 1000);
+      }
     }
 
     addMoreAppl = () => {
+
       const newCalInfo = {
-        appliance: null,
+        appliance: this.state.calInfo.appliance,
         from: null,
         to: null,
         hours: null,
-        type: "C-D",
-        output: null
+        type: this.state.calInfo.type,
+        output: this.state.calInfo.output
       }
       let nullFields = []
+      let typez = false
 
       if(Object.values(this.state.calInfo).some(n => n == null)) {
         Object.keys(this.state.calInfo).forEach(n => {
           if(this.state.calInfo[n] == null) {
-            if(this.state.other) {
+            if(n == "type") {
+              typez = true
+            }  else if(this.state.other) {
               if(n !== "appliance" || n !== "output") {
                 nullFields.push(n)
               }
@@ -107,19 +249,41 @@ class Calc extends Component {
           }
         })
 
+        try {
+          nullFields.forEach(n => document.getElementById(n).style.border = "1px solid red")
+          if(typez) 
+            document.querySelectorAll("#type").forEach(n => n.style.border = "1px solid red" )
+          
+        } catch (err) {
+          console.log(err)
+          console.log(this.state)
 
-        nullFields.forEach(n => document.getElementById(n).style.border = "1px solid red")
+          if(nullFields.some(n => n == "appliance" || n == "output")) {
+            nullFields.filter(n => n !== "appliance" || n !== "output" || n !== null).forEach(n => document.getElementById(n).style.border = "1px solid red")
+          }
+
+          if(typez) 
+            document.querySelectorAll("#type").forEach(n => n.style.border = "1px solid red" )
+
+
+        }
         setTimeout(() => {
-          nullFields.forEach(n => document.getElementById(n).style.border = "1px solid grey")
+          try {
+            nullFields.forEach(n => document.getElementById(n).style.border = "1px solid grey")
+            document.querySelectorAll("#type").forEach(n => n.style.border = "1px solid grey" )
+          } catch(err) {
+            console.log("error handled")
+          }
         }, 3000);
 
       } else {
         // this.addCaliculations()
         console.log("done")
         let oldState = this.state
-        let calInfo = {...oldState.calInfo}
+        let calInfo = this.caliculateEfficiency()
         let appliance = this.state.appliances
-  
+
+        
         appliance.push(calInfo)
   
       this.setState({
@@ -130,7 +294,8 @@ class Calc extends Component {
       document.querySelectorAll("input").forEach(n => n.value = null)
       this.addCaliculations()
       }
-    }
+    
+}
 
 
     handleInputChange = (e) => {
@@ -186,9 +351,11 @@ class Calc extends Component {
 <select className="form-select" required  onChange={() => {
   this.state.calInfo["appliance"] = document.querySelector("#appliancezz").value.split("++")[0]
   this.state.calInfo["output"] = document.querySelector("#appliancezz").value.split("++")[1]
+  this.state.calInfo["COST"] = document.querySelector("#appliancezz").value.split("++")[2]
 
+console.log(document.querySelector("#appliancezz").value)
 
-  if(document.querySelector("#appliancezz").value == "other" || document.querySelector("#appliancezz").value == "Select An Appliance") {
+  if(document.querySelector("#appliancezz").value == "other" || document.querySelector("#appliancezz").value == "undefined++undefined" || document.querySelector("#appliancezz").value == "Select An Appliance") {
     this.setState({
       current: null,
       other: true
@@ -204,18 +371,19 @@ class Calc extends Component {
   <option value="other">Select An Appliance</option>
   {this.state.appli.map(x => {
     let newX = x[0]
-    x.shift()
-    
+    let newxx =  [...x]
+    newxx.shift()
+   
     return (
-      <optgroup label={newX}>
-        {x.map(n => (<option key={this.state.appli.indexOf(n)}   value={n.appliance + "++" + n.output} output={n.output}>{n.appliance}</option>))}
+      <optgroup key={this.state.appli.indexOf(x)} label={newX}>
+        {newxx.map(n => (<option key={x.indexOf(n) + n.appliance}   value={n.appliance + "++" + n.output + "++" + n.cost} output={n.output}>{n.appliance}</option>))}
       </optgroup>
     )
   })}
   <option value="other">Other</option>
 </select>
 <div className="space-up">
-  <button type="button" className="btnn21" data-toggle="modal" data-target="#staticBackdrop">
+  <button onClick={this.checkUser} type="button" className="btnn21" data-toggle="modal" data-target="#staticBackdrop">
   caliculate
 </button>
 
@@ -271,19 +439,19 @@ class Calc extends Component {
 <p className="starts">Effiecieny ClassName</p>
 <div className="radios-end">
 <div className="form-check">
-    <input onChange={() => this.updateRadio("A-B")} required  className="form-check-input" type="radio" name="flexRadioDefault"/>
+    <input onChange={() => this.updateRadio("A-B")} required  className="form-check-input" type="radio" id="type" name="flexRadioDefault"/>
     <label className="form-check-label" htmlFor="flexRadioDefault1">
       A-B
     </label>
   </div>
   <div className="form-check">
-    <input onChange={() => this.updateRadio("C-D")} required  className="form-check-input" type="radio" name="flexRadioDefault" />
+    <input onChange={() => this.updateRadio("C-D")} required  className="form-check-input" type="radio" id="type" name="flexRadioDefault" />
     <label className="form-check-label" htmlFor="flexRadioDefault2">
       C-D
     </label>
   </div>
   <div className="form-check">
-    <input onChange={() => this.updateRadio("E-F")} required  className="form-check-input" type="radio" name="flexRadioDefault"  />
+    <input onChange={() => this.updateRadio("E-F")} required  className="form-check-input" type="radio" id="type" name="flexRadioDefault"  />
     <label className="form-check-label" htmlFor="flexRadioDefault2">
       E-F
     </label>
@@ -293,7 +461,7 @@ class Calc extends Component {
       </div>
       <div className="modal-footer">
         <button type="button" className="btn btn-secondary" data-dismiss="modal" id="8times">Close</button>
-        {!this.state.fetch ? <button  type="button" className="btn btn-primary" onClick={this.addMoreAppl}>continue</button> : <button className="btn btn-primary" type="button" disabled>
+        {!this.state.fetch ? <button  type="subbmit" className="btn btn-primary" onClick={this.addMoreAppl}>continue</button> : <button className="btn btn-primary" type="button" disabled>
           <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
           caliculating...
         </button> }
@@ -304,7 +472,45 @@ class Calc extends Component {
 
 </div>
 </div>
-<button  className="btnn22">View Results</button>
+<div className="alignEnd">
+{!this.state.fetch ? <button className="btnn22" onClick={() => this.addDatabase() }> View Results </button> : null }
+</div> 
+<Modal
+style={{
+  overlay: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.404)'
+},
+content: {
+    position: 'absolute',
+    top: '2%',
+    left: '2%',
+    right: '2%',
+    bottom: '2%',
+    border: '1px solid #fff',
+    background: '#fff',
+    overflow: 'auto',
+    WebkitOverflowScrolling: 'touch',
+    borderRadius: '5px',
+    outline: 'none',
+    padding: '10px'
+}
+}}
+isOpen={this.state.openModal} onRequestClose={() => {
+  let oldModal = this.state.openModal
+  this.setState({
+    openModal: !oldModal
+  })
+}}>   
+
+{this.state.openModal && this.state.appliances.length > 0 ? <Results appliances={this.state.appliances} results={this.state.results} /> : <h1> No Caliculations Made </h1>}
+
+</Modal>
+
 
 </div>
 </div>

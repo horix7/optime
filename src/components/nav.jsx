@@ -10,7 +10,7 @@ let nav = () => {
     <span className="navbar-toggler-icon"></span>
   </button>
   {/* <a className="navbar-brand" href="#">OPTIM  ENERGY</a> */}
-  <img src={Logo} alt="" srcset=""/>
+  <img src={Logo} alt=""/>
   <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul className="navbar-nav mr-auto mb-2 mb-lg-0">
       <li className="nav-item">
@@ -20,15 +20,15 @@ let nav = () => {
         <a className="nav-link" href="#"> </a>
       </li>
       <li className="nav-item">
-        <a className="nav-link disabled " href="#" tabindex="-1" aria-disabled="true">CALCULATE</a>
+        <a className="nav-link disabled " href="#" tabIndex="-1" aria-disabled="true">(EEOC)</a>
       </li>
     </ul>
     <form className="d-flex">
   <a className="navbar-brand" href="#"> <p style={{fontWeight: "lighter"}}>  Share Via </p></a>
-  <a className="navbar-brand" href={'https://www.facebook.com/sharer/sharer.php?u=' + window.location.href} target="blank"> <i class="fab fa-facebook"></i> </a>
-  <a className="navbar-brand" href={"whatsapp://send?text=" + window.location.href} target="blank"> <i class="fab fa-whatsapp"></i> </a>
-  <a className="navbar-brand" href={"http://twitter.com/share?text=optimEnergy" +" &url=" + window.location.href} target="blank"> <i class="fab fa-twitter"></i> </a>
-  <a className="navbar-brand" href={"https://www.linkedin.com/sharing/share-offsite/?url=" + window.location.href} target="blank"> <i class="fab fa-linkedin-in"></i> </a>
+  <a className="navbar-brand" href={'https://www.facebook.com/sharer/sharer.php?u=' + window.location.href} target="blank"> <i className="fab fa-facebook"></i> </a>
+  <a className="navbar-brand" href={"whatsapp://send?text=" + window.location.href} target="blank"> <i className="fab fa-whatsapp"></i> </a>
+  <a className="navbar-brand" href={"http://twitter.com/share?text=optimEnergy" +" &url=" + window.location.href} target="blank"> <i className="fab fa-twitter"></i> </a>
+  <a className="navbar-brand" href={"https://www.linkedin.com/sharing/share-offsite/?url=" + window.location.href} target="blank"> <i className="fab fa-linkedin-in"></i> </a>
 
   
      
