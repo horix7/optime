@@ -8,14 +8,14 @@ import About from "./components/about"
 function App() {
   return (
     <div className="App">
-      <Nav />
+      {/* <Nav />
       <div className="twPlaces">
         <p className="eefc">Energy Efficiency Online Calculator</p>
       <Calc />
       <About />
-      </div>
+      </div> */}
        
-      {/* <Admin/> */}
+      <Admin/>
     </div>
   );
 }

@@ -53,7 +53,7 @@ let rresults = props => {
     
                            {Object.keys(el).map(m => (
                                 <tr>
-                                <td>{m}</td>
+                                <td>{m == "output" ? "efficiency" : m}</td>
                                 <td>{el[m]}</td>
                                 </tr>
                            ))}

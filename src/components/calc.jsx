@@ -3,6 +3,7 @@ import axios from "axios"
 import Aappliances from '../appliances.json'
 import Modal from "react-modal"
 import Results from './results'
+Modal.setAppElement("#root")
 class Calc extends Component {
   
     state = {
@@ -473,7 +474,7 @@ console.log(document.querySelector("#appliancezz").value)
 </div>
 </div>
 <div className="alignEnd">
-{!this.state.fetch ? <button className="btnn22" onClick={() => this.addDatabase() }> View Results </button> : null }
+{!this.state.fetch ? <button className="btnn22" onClick={() => this.addDatabase() }> View Results </button> : <div className="paddingTop">  <div className="d-flex justify-content-center"> <div className="spinner-border" role="status">  <span className="sr-only">Loading...</span> </div> </div> </div> }
 </div> 
 <Modal
 style={{

@@ -1,0 +1,124 @@
+{
+    "-MDYci4vN6exemovRBuU": {
+        "data": [
+            {
+                "appliance": "Baseboard heater (six foot unit) (250 W/foot)",
+                "output": "189%",
+                "powerUsage": 453600000
+            },
+            {
+                "appliance": "Central (3 ton–12 SEER)",
+                "output": "99%",
+                "powerUsage": 3229200000
+            },
+            {
+                "appliance": "Whole house fan",
+                "output": "216%",
+                "powerUsage": 0
+            },
+            {
+                "appliance": "Instantaneous (240 v 50 amp) @2.5gpm 83°F",
+                "output": "NaN%",
+                "powerUsage": 2505600000
+            },
+            {
+                "appliance": "Instantaneous (240 v 50 amp) @2.5gpm 83°F",
+                "moneyUsage": 0,
+                "output": "NaN%",
+                "powerUsage": 2592000000
+            }
+        ],
+        "date": "Jul 30 2020",
+        "summary": {
+            "Home Average Energy Efficiency": 100.8,
+            "Home Energy Cost": 0,
+            "Total Energy Usage": 8780400000
+        },
+        "user": {
+            "location": "Rwanda",
+            "username": "Paul"
+        }
+    },
+    "-MDYj4Q4EhusV7R1rGzZ": {
+        "data": [
+            {
+                "appliance": "Baseboard heater (six foot unit) (250 W/foot)",
+                "output": "108%",
+                "powerUsage": 1944000000
+            },
+            {
+                "appliance": "Whole house fan",
+                "output": "NaN%",
+                "powerUsage": 106560000
+            }
+        ],
+        "date": "Jul 31 2020",
+        "summary": {
+            "Home Average Energy Efficiency": 108,
+            "Home Energy Cost": 0,
+            "Total Energy Usage": 1944000000
+        },
+        "user": {
+            "location": "Rwanda",
+            "username": "Paul"
+        }
+    },
+    "-MDYjG2ASFG5BpZDi_S7": {
+        "data": [
+            {
+                "appliance": "Baseboard heater (six foot unit) (250 W/foot)",
+                "output": "108%",
+                "powerUsage": 1944000000
+            },
+            {
+                "appliance": "Whole house fan",
+                "output": "NaN%",
+                "powerUsage": 106560000
+            },
+            {
+                "appliance": "Central (3 ton–12 SEER)",
+                "output": "594%",
+                "powerUsage": 453600000
+            }
+        ],
+        "date": "Jul 31 2020",
+        "summary": {
+            "Home Average Energy Efficiency": 54,
+            "Home Energy Cost": 0,
+            "Total Energy Usage": 2050560000
+        },
+        "user": {
+            "location": "Rwanda",
+            "username": "Paul"
+        }
+    },
+    "-MDYlzKZxeXpAoei09Nn": {
+        "data": [
+            {
+                "appliance": "Baseboard heater (six foot unit) (250 W/foot)",
+                "output": "108%",
+                "powerUsage": 1944000000
+            },
+            {
+                "appliance": "Whole house fan",
+                "output": "NaN%",
+                "powerUsage": 106560000
+            },
+            {
+                "appliance": "Central (3 ton–12 SEER)",
+                "output": "594%",
+                "powerUsage": 453600000
+            }
+        ],
+        "date": "Jul 31 2020",
+        "summary": {
+            "Home Average Energy Efficiency": 234,
+            "Home Energy Cost": 0,
+            "Total Energy Usage": 2504160000
+        },
+        "user": {
+            "location": "Rwanda",
+            "username": "Paul"
+        }
+    }
+}

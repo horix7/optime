@@ -2,6 +2,31 @@
   --main-color: rgb(1, 77, 139);
 }
 
+.paddingTop {
+  padding-top: 20px;
+}
+
+
+.endz {
+  text-align: end;
+  float: right;
+  color: var(--main-color);
+  font-weight: 400;
+}
+
+.oneSTarcture {
+  width: 350px;
+  margin-bottom: 20px;
+}
+
+.flexTwo {
+  display: flexbox;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  /* grid-template-columns: 400px 400px; */
+  /* column-gap: 20px; */
+}
+
 optgroup {
   background-color: rgba(1, 77, 139);
   border: 10px solid red;
@@ -14,6 +39,20 @@ optgroup option {
 
 }
 
+.linkClick {
+  color: blue;
+  font-size: small;
+  text-decoration: underline;
+  cursor: pointer;
+  text-transform: lowercase;
+  
+}
+
+li {
+  text-transform: uppercase;
+  font-size: small;
+}
+
 .eefc {
   display: none;
 }
@@ -23,6 +62,10 @@ optgroup option {
   text-transform: uppercase;
   font-size: large;
   padding: 20px 0px 20px;
+}
+
+.gusaW {
+  max-width: 18rem;
 }
 
 .viewAll {
@@ -49,11 +92,27 @@ html {
   margin-top: 30px;
   padding: 7px;
 }
+.startz {
+  text-align: start;
+  float: left;
+  font-size: small;
+  padding-bottom: 10px;
+  
+}
 
+.boxes {
+  display: grid;
+  grid-template-columns: 350px;
+  margin-left: 4%;
+  padding: 1%;
+}
 .btnGr {
   display: grid;
-  grid-template-columns: 150px 1fr;
-  margin: 10px;
+  margin-top: 10px;
+  grid-template-columns: 200px;
+  grid-template-rows: 50px;
+  row-gap: 10px;
+  
 }
 
 .twPlaces {
@@ -83,10 +142,13 @@ html {
 }
 .tablez {
   text-align: start;
+  padding: 10px;
+  width: 80%;
+  margin-left: 5%;
 }
 
 .tablez h5 {
-  padding: 10px;
+  padding-bottom: 10px;
   font-weight: normal;
 }
 
@@ -172,6 +234,10 @@ box-shadow: 4px 3px 4px 1px rgba(128, 128, 128, 0.221);
 
 }
 
+.adminArea {
+  text-align: center;
+}
+
 
 .btnn22:hover {
   height: 37px;
@@ -238,6 +304,10 @@ box-shadow: 4px 3px 4px 1px rgba(128, 128, 128, 0.221);
   border: none;
   color: white;
   outline: none;
+}
+
+.d-flex span {
+  font-size: medium;
 }
 
 button:focus {
@@ -346,6 +416,17 @@ button:focus {
       grid-template-columns:  1fr 1fr 1fr;
   }
 
+  
+.boxes {
+  display: grid;
+  grid-template-columns: 350px;
+  margin-left: 0%;
+  padding: 2px;
+}
+  .tablez {
+    width: 100%;
+    margin-left: 0%;
+  }
   .one-opt {
       font-size: small;
   }
