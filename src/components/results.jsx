@@ -22,8 +22,8 @@ let rresults = props => {
 
                         <tr>
                         {/* <th scope="row">{props..indexOf(n) + 1}</th> */}
-                        <td>{props.results["Home Average Energy Efficiency"]}</td>
-                        <td>{props.results["Total Energy Usage"]}</td>
+                        <td>{props.results["Average Energy Efficiency"]} %</td>
+                        <td>{props.results["Total Energy Usage"]} watt</td>
                         </tr>
                     
                     
@@ -42,19 +42,19 @@ let rresults = props => {
                         <h1 className="resHead">
                             {el.appliance}
                         </h1>
-                        <table className="table">
+                        <table className="table table-secondary1">
                         <thead>
                             <tr>
                             <th scope="col">Info</th>
-                            <th scope="col">Results</th>
+                            <th scope="col" style={{textAlign:"end"}}>Results</th>
                             </tr>
                         </thead>
                         <tbody>
     
                            {Object.keys(el).map(m => (
                                 <tr>
-                                <td>{m == "output" ? "efficiency" : m}</td>
-                                <td>{el[m]}</td>
+                                <td>{m == "output" ? "output" : m}</td>
+                                <td style={{textAlign:"end"}}>{parseInt(el[m]) == el[m] ? el[m] + " " +"watt": el[m]}</td>
                                 </tr>
                            ))}
                         

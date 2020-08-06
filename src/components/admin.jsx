@@ -105,19 +105,19 @@ class Admin extends Component {
     
     getAppliances = () => {
 
-        axios({
-          method: 'get',
-          url:"https://optim-calc.firebaseio.com/apliances/caliculations.json",
-          })
-          .then( (response) => {
-            this.setState({
-                caliculations: response.data
-            })
+        // axios({
+        //   method: 'get',
+        //   url:"https://optim-calc.firebaseio.com/apliances/caliculations.json",
+        //   })
+        //   .then( (response) => {
+        //     this.setState({
+        //         caliculations: response.data
+        //     })
 
-            alert(JSON.stringify(response.data))
+        //     alert(JSON.stringify(response.data))
 
-          })
-          .catch(err => { 
+        //   })
+        //   .catch(err => { 
             let dates = [...new Set(Object.keys(demoData).map(n => {return {date: demoData[n].date, id: n}}))].reverse()
             let dates2 = [...new Set(Object.keys(demoData).map(n => demoData[n].date))]
             let dates1 = Object.keys(demoData).map(n => {return {date: Object.keys(demoData).indexOf(n), id: n}})
@@ -148,7 +148,7 @@ class Admin extends Component {
 
             // alert("An Error Have Occured")
 
-          })
+          // })
       }
 
 

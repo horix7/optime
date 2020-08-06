@@ -18,7 +18,7 @@ let nav = () => {
         <a className="nav-link" href="#"> </a>
       </li>
       <li className="nav-item">
-        <a className="nav-link disabled " href="#" tabIndex="-1" aria-disabled="true">caliculations</a>
+        <a className="nav-link disabled " href="#" tabIndexb="-1" aria-disabled="true">caliculations</a>
       </li>
     </ul>
     <form className="d-flex">

@@ -3,6 +3,8 @@ import axios from "axios"
 import Aappliances from '../appliances.json'
 import Modal from "react-modal"
 import Results from './results'
+import IForm from './initialForm'
+
 Modal.setAppElement("#root")
 class Calc extends Component {
   
@@ -16,35 +18,81 @@ class Calc extends Component {
         output: null,
         COST: 0
       },
+      totalAcTime: [],
       typeCurrent: null,
       current: null,
-      appliances: [],
+      appliances: JSON.parse(localStorage.unsaved).data || [],
       other: true,
       fetch: false,
       appli: [],
       results: null,
-      openModal: false
+      openModal: false,
+      initialInput: {}
     }
 
 
+
+    updateInitialForm = (parssed) => {
+
+      this.setState({
+        initialInput: {...parssed}
+      })
+
+    }
 
     componentDidMount() {
       this.getAppliances()
     }
 
+
+    convertMoneyToWatt = (totalWatt) => {
+      try{
+
+        let cost = parseFloat(this.state.initialInput.countryCost) * parseFloat(totalWatt)
+        let input  = this.state.initialInput.cost / this.state.initialInput.countryCost
+  
+        return {
+          input: input,
+          totalCost: cost
+        }
+      }catch(err) {
+        alert("please fill in all required fields")
+        console.log(err)
+        console.log(this.state.initialInput)
+        
+        return  {
+          input: 0,
+          totalCost: 0
+        }
+      }
+    }
     
 
     generateRezults = () => {
 try {
-  
   let oldAppliances =[...this.state.appliances]
-  let usedWatt = oldAppliances.map(n => n.powerUsage).reduce((a,b) => a + b)
-  let averageEffiency = oldAppliances.map(n => n.output !== "NaN%" ? parseFloat(n.output.toString().split("%")[0]) : 0).reduce((a,b) => a + b) / oldAppliances.length
+  let totalPeriod =oldAppliances.map(n => n.duration).reduce((a,b) => a + b)
+  let usedWatt = oldAppliances.map(n => parseInt(n.powerUsage)).reduce((a,b) => a + b)
+  let averageEffiency = oldAppliances.map(n => parseFloat(n.output.toString().split("kw/h")[0])).reduce((a,b) => a + b)
+  
+  let allHH = this.state.totalAcTime.length * this.state.initialInput.durationz
+  
 
+  let totalAcTime = this.state.totalAcTime.map(n => parseFloat(n)).reduce((a,b) => a + b) / this.state.totalAcTime.length
+  totalAcTime = totalAcTime * allHH
+  
+  let ouputAv = averageEffiency /totalAcTime
+
+  let dataAvggz = this.convertMoneyToWatt(averageEffiency)
+
+  let efficiency = dataAvggz.input / ouputAv
+  efficiency = efficiency * 100
+
+  
   return {
     "Total Energy Usage": usedWatt,
-    "Home Average Energy Efficiency": averageEffiency,
-    "Home Energy Cost": 0 
+    "Average Energy Efficiency": efficiency,
+    "Energy Cost": dataAvggz.totalCost
   }
 } catch(err) {
   console.log(err)
@@ -100,15 +148,14 @@ try {
     }
 
     caliculateEfficiency = () => {
-      const hours =  new Date(this.state.calInfo.to).getTime() -  new Date(this.state.calInfo.from).getTime()
+      let hours =  new Date(this.state.calInfo.to).getTime() -  new Date(this.state.calInfo.from).getTime()
       const rationUsage = this.state.calInfo.hours / 24
+      hours = hours / 3600000
       let allHours = hours * rationUsage
       const inputEnergy = parseFloat(this.state.calInfo.output.split("kWh")[0])
       let powerUsage = allHours * inputEnergy
 
       let allPower = inputEnergy * hours
-
-      let Effieciency = (powerUsage / allPower) * 100
 
       let getMoney = (element) => {
        if(typeof element == "string") {
@@ -125,30 +172,25 @@ try {
        }
       }
 
-      console.log(getMoney(this.state.calInfo.COST))
+      let oldSStat = [...this.state.totalAcTime]
+      oldSStat.push(rationUsage)
 
-      let calcEff;
-
-      if(this.state.calInfo.type == "A-B") {
-        calcEff = 0.72
-      }else if (this.state.calInfo.type == "D-C")  {
-        calcEff = 0.72 * 2
-      }else if (this.state.calInfo.type == "E-F")  {
-        calcEff = 0.72 * 3
-      }
-
-
+      this.setState({
+        totalAcTime: oldSStat
+      })
       return {
         appliance: this.state.current,
-        output: (Effieciency * calcEff) + "%",
-        powerUsage: allPower - powerUsage,
-        moneyUsage: getMoney(this.state.calInfo.COST)
-
+        output: parseFloat(inputEnergy).toFixed(2).toString() + " "+"kw/h",
+        powerUsage: parseFloat(powerUsage).toFixed(2),
+        duration: allHours
       }
       
 
       
     }
+
+
+
 
     addCaliculations = () => {
           this.setState({
@@ -207,8 +249,10 @@ try {
           }))
 
           alert("Something Went Wrong \nMake Sure Your Internet Is On")
+          let oldModal = this.state.openModal
 
           this.setState({
+            openModal: !oldModal,
             fetch: false
           })
         })
@@ -224,13 +268,25 @@ try {
 
     addMoreAppl = () => {
 
-      const newCalInfo = {
+      let newCalInfo = {
         appliance: this.state.calInfo.appliance,
         from: null,
         to: null,
         hours: null,
         type: this.state.calInfo.type,
         output: this.state.calInfo.output
+      }
+
+      if(this.state.other) {
+        
+       newCalInfo = {
+        appliance: null,
+        from: null,
+        to: null,
+        hours: null,
+        type: this.state.calInfo.type,
+        output: null
+      }
       }
       let nullFields = []
       let typez = false
@@ -256,13 +312,15 @@ try {
             document.querySelectorAll("#type").forEach(n => n.style.border = "1px solid red" )
           
         } catch (err) {
-          console.log(err)
+          console.log("nullz [here..]")
+          console.log(nullFields)
           console.log(this.state)
 
           if(nullFields.some(n => n == "appliance" || n == "output")) {
             nullFields.filter(n => n !== "appliance" || n !== "output" || n !== null).forEach(n => document.getElementById(n).style.border = "1px solid red")
+          }else {
+            nullFields.forEach(n => document.getElementById(n).style.border = "1px solid red")
           }
-
           if(typez) 
             document.querySelectorAll("#type").forEach(n => n.style.border = "1px solid red" )
 
@@ -325,9 +383,9 @@ try {
       <table className="table">
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col"></th>
           <th scope="col">Appliances</th>
-          <th scope="col">Effieciency</th>
+          <th scope="col">Input</th>
         </tr>
       </thead>
       <tbody>
@@ -348,20 +406,21 @@ try {
   </div>
 
 <div className="maiholder">
-    
-<select className="form-select" required  onChange={() => {
-  this.state.calInfo["appliance"] = document.querySelector("#appliancezz").value.split("++")[0]
-  this.state.calInfo["output"] = document.querySelector("#appliancezz").value.split("++")[1]
-  this.state.calInfo["COST"] = document.querySelector("#appliancezz").value.split("++")[2]
+<IForm changeInitials={(info) => this.updateInitialForm(info)} />
+<div className="formHH">
 
-console.log(document.querySelector("#appliancezz").value)
-
+<select className="uniqueSel" required  onChange={() => {
+  
   if(document.querySelector("#appliancezz").value == "other" || document.querySelector("#appliancezz").value == "undefined++undefined" || document.querySelector("#appliancezz").value == "Select An Appliance") {
+  
     this.setState({
       current: null,
       other: true
     })
   } else {
+
+    this.state.calInfo["appliance"] = document.querySelector("#appliancezz").value.split("++")[0]
+    this.state.calInfo["output"] = document.querySelector("#appliancezz").value.split("++")[1]
     this.setState({
       current: document.querySelector("#appliancezz").value.split("++")[0],
       other: false
@@ -383,6 +442,8 @@ console.log(document.querySelector("#appliancezz").value)
   })}
   <option value="other">Other</option>
 </select>
+</div>
+
 <div className="space-up">
   <button onClick={this.checkUser} type="button" className="btnn21" data-toggle="modal" data-target="#staticBackdrop">
   caliculate
@@ -405,7 +466,7 @@ console.log(document.querySelector("#appliancezz").value)
 
    {this.state.other ? <React.Fragment>
      <div className="input-group mb-3">
-<span className="input-group-text" id="basic-addon1">current name</span>
+<span className="input-group-text" id="basic-addon1">appliance name</span>
 <input onChange={this.handleInputChange} type="text" className="form-control" placeholder=""  id="appliance" aria-label="Apppliance" aria-describedby="basic-addon1"  />
 </div>
 
