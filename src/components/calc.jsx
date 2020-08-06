@@ -6,8 +6,16 @@ import Results from './results'
 import IForm from './initialForm'
 
 Modal.setAppElement("#root")
+let zata = null
+
+try {
+  zata = JSON.parse(localStorage.unsaved).data
+}catch (err) {
+  zata = null
+}
 class Calc extends Component {
   
+
     state = {
       calInfo: {
         appliance: null,
@@ -21,7 +29,7 @@ class Calc extends Component {
       totalAcTime: [],
       typeCurrent: null,
       current: null,
-      appliances: JSON.parse(localStorage.unsaved).data || [],
+      appliances: zata || [],
       other: true,
       fetch: false,
       appli: [],
@@ -208,8 +216,14 @@ try {
 
     addDatabase = () => {
       let dateSplit = new Date().toString().split(" ")
+      let userIInfo;
+      try {
+         userIInfo = JSON.parse(localStorage.userInfo)
+      } catch (err) {
+        userIInfo = "null"
+      }
 
-      let userIInfo = JSON.parse(localStorage.userInfo)
+
       if(localStorage.userInfo == "null") {
         userIInfo = { username: "anonymous", location: "Unavailable"}
       }
