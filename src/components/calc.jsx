@@ -65,8 +65,6 @@ class Calc extends Component {
         }
       }catch(err) {
         alert("please fill in all required fields")
-        console.log(err)
-        console.log(this.state.initialInput)
         
         return  {
           input: 0,
@@ -98,10 +96,11 @@ try {
 
   
   return {
-    "Total Energy Usage": usedWatt,
-    "Average Energy Efficiency": efficiency,
+    "Home Total Energy Usage": usedWatt,
+    "Home Average Energy Efficiency": efficiency,
     "Energy Cost": dataAvggz.totalCost
   }
+
 } catch(err) {
   console.log(err)
   alert("You Have Zero Caliculation Made")
@@ -129,29 +128,59 @@ try {
     getAppliances = () => {
 
 
-          let headds = [...new Set(Aappliances.map(n => n["CATEGORY"]))]
-          let newData = []
-           
-          headds.forEach(n => {
-
-          let newObj = Aappliances.filter(k => k["CATEGORY"] == n).map(x => {
-            return {
-              appliance: x["DETAIL"],
-              output: x["OUTPUT"],
-              cost: x["COST"]
-            }
-          })
-
-           let addObj= [n, ...newObj]
-          
-          newData.push(addObj)
-
+      axios({
+        method: 'get',
+        url:"https://optim-calc.firebaseio.com/apliances/-ME8iUsYmHnlonCZh5nG.json",
         })
-        this.setState({
-          appli: newData
+       .then(results => {
+         let DAta = Object.values(results.data)
+        let headds = [...new Set(DAta.map(n => n["CATEGORY"]))]
+        let newData = []
+         
+        headds.forEach(n => {
+
+        let newObj = DAta.filter(k => k["CATEGORY"] == n).map(x => {
+          return {
+            appliance: x["DETAIL"],
+            output: x["OUTPUT"],
+            cost: x["COST"]
+          }
         })
 
+         let addObj= [n, ...newObj]
+        
+        newData.push(addObj)
 
+      })
+      this.setState({
+        appli: newData
+      })
+       })
+       .catch(err => {
+        let headds = [...new Set(Aappliances.map(n => n["CATEGORY"]))]
+        let newData = []
+         
+        headds.forEach(n => {
+
+        let newObj = Aappliances.filter(k => k["CATEGORY"] == n).map(x => {
+          return {
+            appliance: x["DETAIL"],
+            output: x["OUTPUT"],
+            cost: x["COST"]
+          }
+        })
+
+         let addObj= [n, ...newObj]
+        
+        newData.push(addObj)
+
+      })
+      this.setState({
+        appli: newData
+      })
+
+
+       })
         
     }
 
@@ -215,6 +244,8 @@ try {
     }
 
     addDatabase = () => {
+      if(Object.keys(this.state.initialInput).length === 4 && Object.values(this.state.initialInput).every(n => n !== null )) {
+        
       let dateSplit = new Date().toString().split(" ")
       let userIInfo;
       try {
@@ -243,7 +274,7 @@ try {
           user: userIInfo,
           date: [dateSplit[1], dateSplit[2], dateSplit[3] ].join(" "),
           data: this.state.appliances,
-          summary: this.state.results
+          summary: this.generateRezults()
         },
         headers: {'Content-Type': "application/json" }
         })
@@ -271,14 +302,17 @@ try {
           })
         })
       }else {
-       console.log("No Data")
        setTimeout(() => {
         this.setState({
           fetch: false
         })
        }, 1000);
       }
-    }
+   
+      } else {
+        alert("Please Choose Your Country and your Electricity Cost")
+      }
+     }
 
     addMoreAppl = () => {
 
@@ -326,9 +360,6 @@ try {
             document.querySelectorAll("#type").forEach(n => n.style.border = "1px solid red" )
           
         } catch (err) {
-          console.log("nullz [here..]")
-          console.log(nullFields)
-          console.log(this.state)
 
           if(nullFields.some(n => n == "appliance" || n == "output")) {
             nullFields.filter(n => n !== "appliance" || n !== "output" || n !== null).forEach(n => document.getElementById(n).style.border = "1px solid red")
@@ -351,7 +382,6 @@ try {
 
       } else {
         // this.addCaliculations()
-        console.log("done")
         let oldState = this.state
         let calInfo = this.caliculateEfficiency()
         let appliance = this.state.appliances
@@ -381,7 +411,6 @@ try {
    }
 
    updateRadio = (radio) => {
-      console.log(this.state)
       this.state.calInfo.type = radio
    }
     render() {

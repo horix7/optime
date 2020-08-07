@@ -69,6 +69,7 @@ class InitialForm extends Component {
                 </div>
 
                 <select name="countriesCost" id="electricity" onChange={this.selectChangeHandler}>
+                    <option> Choose Country </option>
                 {electricityCost.map(elem => (
                         <option value={elem.country + "++" + elem.value} key={elem.country}>{elem.country}</option>
                     ))}

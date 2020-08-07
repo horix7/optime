@@ -9,6 +9,12 @@ class Admin extends Component {
     state = {
         allAppliances: null,
         caliculations: {},
+        caliculationc: {
+          DETAIL: null,
+          OUTPUT: null,
+          COST: null,
+          CATEGORY: null
+        },
         currentPresent: null,
         newAppliance: {
             DETAIL: null,
@@ -28,12 +34,8 @@ class Admin extends Component {
 
     
     handleInputChange = (e) => {
-        this.state.caliculations[e.target.id] = e.target.value
-        if(e.target.id == "appliance") {
-          this.setState({
-            current:e.target.value
-          })
-        }
+        this.state.caliculationc[e.target.id] = e.target.value
+       
      }
 
      addMoreAppl = () => {
@@ -43,9 +45,9 @@ class Admin extends Component {
         }
         let nullFields = []
   
-        if(Object.values(this.state.caliculations).some(n => n == null)) {
-          Object.keys(this.state.caliculations).forEach(n => {
-            if(this.state.caliculations[n] == null) {
+        if(Object.values(this.state.caliculationc).some(n => n == null)) {
+          Object.keys(this.state.caliculationc).forEach(n => {
+            if(this.state.caliculationc[n] == null) {
                 nullFields.push(n)
               }
           })
@@ -58,20 +60,17 @@ class Admin extends Component {
   
         } else {
           // this.addCaliculations()
-          console.log("done")
           let oldState = this.state
-          let caliculationz = {...oldState.caliculations}
     
     
         this.setState({
-          caliculations: {...newcalic}
+          caliculationc: {...newcalic}
         })
   
         document.querySelectorAll("input").forEach(n => n.value = null)
         this.addCaliculations()
         }
       }
-  
   
 
     addCaliculations = () => {
@@ -80,8 +79,8 @@ class Admin extends Component {
         })
         axios({
           method: 'post',
-          url:"https://optim-calc.firebaseio.com/apliances/caliculations.json",
-          data: this.state.caliculations,
+          url:"https://optim-calc.firebaseio.com/apliances/-ME8iUsYmHnlonCZh5nG.json",
+          data: this.state.caliculationc,
           headers: {'Content-Type': "application/json" }
           })
           .then(response => {
@@ -90,7 +89,6 @@ class Admin extends Component {
             })
             if(typeof response.name == "string") {
                 alert("Appliance Was Added Successfully")
-                // document.getElementById("8times").click()
             }
           }).catch(err => {
             this.setState({
@@ -105,50 +103,39 @@ class Admin extends Component {
     
     getAppliances = () => {
 
-        // axios({
-        //   method: 'get',
-        //   url:"https://optim-calc.firebaseio.com/apliances/caliculations.json",
-        //   })
-        //   .then( (response) => {
-        //     this.setState({
-        //         caliculations: response.data
-        //     })
-
-        //     alert(JSON.stringify(response.data))
-
-        //   })
-        //   .catch(err => { 
-            let dates = [...new Set(Object.keys(demoData).map(n => {return {date: demoData[n].date, id: n}}))].reverse()
-            let dates2 = [...new Set(Object.keys(demoData).map(n => demoData[n].date))]
-            let dates1 = Object.keys(demoData).map(n => {return {date: Object.keys(demoData).indexOf(n), id: n}})
+        axios({
+          method: 'get',
+          url:"https://optim-calc.firebaseio.com/apliances/caliculations.json",
+          })
+          .then( (response) => {
+          
+            let dates = [...new Set(Object.keys(response.data).map(n => {return {date: response.data[n].date, id: n}}))].reverse()
+            let dates2 = [...new Set(Object.keys(response.data).map(n => response.data[n].date))]
+            let dates1 = Object.keys(response.data).map(n => {return {date: Object.keys(response.data).indexOf(n), id: n}})
             
             let dataMapped = {}
             let mappedD = []
             
             dates.map(n => n.date).forEach(n => {
-              let data ={...Object.values(demoData).filter(m => m.date == n)}
+              let data ={...Object.values(response.data).filter(m => m.date == n)}
              
               // let checkId  = (elem) => {
               //   return dates1.filter(n => n.id == elem).map(n => n.id)[0]
               // }
               // mappedD.push({index: n, reference: dates[dates2.indexOf(n)].id})
-              
               dataMapped[n] = data
 
             })
-
-            console.log(dataMapped)
-            console.log(dates1)
-
             
             this.setState({
               caliculationz: dataMapped,
-              caliculations: demoData
+              caliculations: response.data
           })
 
-            // alert("An Error Have Occured")
-
-          // })
+          })
+          .catch(err => { 
+            alert("An Error Have Occured")
+          })
       }
 
 
@@ -227,7 +214,6 @@ class Admin extends Component {
       })
 
       let viewResults = (reqq, represntatives = represntatives) => {
-        console.log(reqq)
 
         let oldState = this.state
         let currentPicked = null
@@ -416,7 +402,7 @@ class Admin extends Component {
                 </div>
                 
             </React.Fragment>
-        : <div className="fofo"> No Internet Connection </div> }
+        : <div className="fofo">Loading Info.... </div> }
             </Fragment>  
           )
     }

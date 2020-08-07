@@ -1,6 +1,14 @@
 import React from 'react'
-
+import Logo from '../logo.png'
 let nav = () => {
+
+    
+ let logout = () => {
+    localStorage.setItem("loined", null)
+    window.location.reload()
+
+  }
+
     return (
         
 <nav className="navbar navbar-expand-lg navbar-dark bg-primary1">
@@ -8,7 +16,8 @@ let nav = () => {
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
-  <a className="navbar-brand" href="#">OPTIM  ADMIN</a>
+  <img src={Logo} alt="" width="200px"/>
+
   <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul className="navbar-nav mr-auto mb-2 mb-lg-0">
       <li className="nav-item">
@@ -22,7 +31,7 @@ let nav = () => {
       </li>
     </ul>
     <form className="d-flex">
-  <a className="navbar-brand" href="#">Logout</a>
+  <a className="navbar-brand" href="#" onClick={logout}>Logout</a>
      
     </form>
   </div>

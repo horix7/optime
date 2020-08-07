@@ -2,7 +2,7 @@ import React from 'react'
 
 let rresults = props => {
 
-    console.log(props)
+
     return (
         <React.Fragment>
 
@@ -22,8 +22,8 @@ let rresults = props => {
 
                         <tr>
                         {/* <th scope="row">{props..indexOf(n) + 1}</th> */}
-                        <td>{props.results["Average Energy Efficiency"]} %</td>
-                        <td>{props.results["Total Energy Usage"]} watt</td>
+                        <td>{ parseInt(props.results["Home Average Energy Efficiency"]) > 100 ? 100 : props.results["Average Energy Efficiency"]} %</td>
+                        <td>{props.results["Home Total Energy Usage"]} watt</td>
                         </tr>
                     
                     
@@ -54,7 +54,7 @@ let rresults = props => {
                            {Object.keys(el).map(m => (
                                 <tr>
                                 <td>{m == "output" ? "output" : m}</td>
-                                <td style={{textAlign:"end"}}>{parseInt(el[m]) == el[m] ? el[m] + " " +"watt": el[m]}</td>
+                                <td style={{textAlign:"end"}}>{el[m]}</td>
                                 </tr>
                            ))}
                         
