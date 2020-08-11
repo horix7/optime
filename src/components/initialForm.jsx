@@ -13,8 +13,8 @@ class InitialForm extends Component {
         },
         durationz: {
             "Monthly": 744,
-            "Annually":8766,
-            "Daily": 24
+            // "Annually":8766,
+            // "Daily": 24
         }
     }
 
@@ -52,7 +52,7 @@ class InitialForm extends Component {
                <div className="oneForm11">
                <div className="oneForm">
                 <label htmlFor="cost">Electricity Cost In USD</label>
-                <input type="text" className="uniqueInput" onChange={this.handleInputChange} id="cost" />
+                <input type="number" className="uniqueInput" onChange={this.handleInputChange} id="cost" />
                 </div>
 
                 <select name="duration" id="durationz" onChange={this.handleInputChange}>

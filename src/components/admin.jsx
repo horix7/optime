@@ -3,6 +3,9 @@ import Nav from './adminNav'
 import axios from 'axios'
 import demoData from '../adminDemo.json'
 import Modal from 'react-modal'
+import jsPDF from 'jspdf';
+
+
 Modal.setAppElement("#root")
 
 class Admin extends Component {
@@ -26,6 +29,44 @@ class Admin extends Component {
         incrementor: 0
     }
 
+
+    dowLoadCsv = (objArray) => {
+      let items = objArray;
+      const replacer = (key, value) => value === null ? '' : value;
+      const header = Object.keys(items[0]);
+      let csv = items.map(row => header.map(fieldName => JSON.stringify(row[fieldName], replacer)).join(','));
+      csv.unshift(header.join(','));
+      csv = csv.join('\r\n');
+
+      alert("Press Ok To DownLoad Csv")
+
+      let downloadLink = document.createElement("a");
+      let blob = new Blob(["\ufeff", csv]); 
+      let url = URL.createObjectURL(blob);
+      downloadLink.href = url;
+      downloadLink.download = `${parseInt(Math.floor(Math.random() * 1200) + 1).toString()}fortuneData.csv`;  //Name the file here
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+
+  }
+
+
+  dowLoadPdf = (data, element) => {
+
+  }
+
+
+
+  printData =  () => {
+
+  }
+
+
+
+
+
+  
 
 
     componentDidMount = () => {
@@ -390,6 +431,14 @@ class Admin extends Component {
                                   openModal: !oldModal
                                 })
                               }}>   
+                               <div className="closeMod sticky-top" onClick={() => {
+                                let oldModal = this.state.openModal
+                                this.setState({
+                                  openModal: !oldModal
+                                })
+                                   }}>
+                                      +
+                                 </div>
 
                                 {this.state.currentPresent}
 

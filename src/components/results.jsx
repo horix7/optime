@@ -22,8 +22,8 @@ let rresults = props => {
 
                         <tr>
                         {/* <th scope="row">{props..indexOf(n) + 1}</th> */}
-                        <td>{ parseInt(props.results["Home Average Energy Efficiency"]) > 100 ? 100 : props.results["Average Energy Efficiency"]} %</td>
-                        <td>{props.results["Home Total Energy Usage"]} watt</td>
+                        <td>{ parseInt(props.results["Home Average Energy Efficiency"]) > 100 ? 100 : parseFloat(props.results["Home Average Energy Efficiency"]).toFixed(2)} %</td>
+                        <td>{props.results["Home Total Energy Usage"]} kw</td>
                         </tr>
                     
                     

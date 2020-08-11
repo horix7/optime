@@ -4,15 +4,19 @@ import Aappliances from '../appliances.json'
 import Modal from "react-modal"
 import Results from './results'
 import IForm from './initialForm'
+import ExtraCalc from './extraCalc'
 
 Modal.setAppElement("#root")
-let zata = null
 
-try {
-  zata = JSON.parse(localStorage.unsaved).data
-}catch (err) {
-  zata = null
+let  zata;
+try  {
+   zata = JSON.parse(localStorage.unsaved)
+}catch {
+ zata = []
+
 }
+
+
 class Calc extends Component {
   
 
@@ -26,10 +30,11 @@ class Calc extends Component {
         output: null,
         COST: 0
       },
-      totalAcTime: [],
+      oneCurrent: false,
+      totalAcTime:  zata.totalAcTime || [],
       typeCurrent: null,
       current: null,
-      appliances: zata || [],
+      appliances: zata.data || [],
       other: true,
       fetch: false,
       appli: [],
@@ -38,7 +43,12 @@ class Calc extends Component {
       initialInput: {}
     }
 
-
+    changeCurrentFrom = () => {
+      let oldState = {...this.state}
+      this.setState({
+        oneCurrent: !oldState.oneCurrent
+      })
+    }
 
     updateInitialForm = (parssed) => {
 
@@ -55,12 +65,15 @@ class Calc extends Component {
 
     convertMoneyToWatt = (totalWatt) => {
       try{
-
+      
+        let oldAppliances =[...this.state.appliances]
+        let averageEffiency = oldAppliances.map(n => parseFloat(n.output.toString().split("kw/h")[0])).reduce((a,b) => a + b)  / oldAppliances.length
+        let dividCost = this.state.initialInput.countryCost / averageEffiency
         let cost = parseFloat(this.state.initialInput.countryCost) * parseFloat(totalWatt)
-        let input  = this.state.initialInput.cost / this.state.initialInput.countryCost
-  
+        let input  = this.state.initialInput.cost / dividCost
+        
         return {
-          input: input,
+          input: input *  this.state.initialInput.durationz,
           totalCost: cost
         }
       }catch(err) {
@@ -87,11 +100,13 @@ try {
   let totalAcTime = this.state.totalAcTime.map(n => parseFloat(n)).reduce((a,b) => a + b) / this.state.totalAcTime.length
   totalAcTime = totalAcTime * allHH
   
-  let ouputAv = averageEffiency /totalAcTime
+  let ouputAv = averageEffiency * totalAcTime
 
   let dataAvggz = this.convertMoneyToWatt(averageEffiency)
 
-  let efficiency = dataAvggz.input / ouputAv
+  alert(dataAvggz.input + " - " + ouputAv + ' - ' + totalAcTime)
+
+  let efficiency =   parseInt(ouputAv) / parseInt(dataAvggz.input) 
   efficiency = efficiency * 100
 
   
@@ -102,7 +117,9 @@ try {
   }
 
 } catch(err) {
-  console.log(err)
+  alert(JSON.stringify(err))
+  console.error(err)
+  console.log(this.state.appliances)
   alert("You Have Zero Caliculation Made")
 
 }
@@ -290,7 +307,8 @@ try {
         }).catch(err => {
           localStorage.setItem("unsaved", JSON.stringify({
             date: [ dateSplit[1], dateSplit[2], dateSplit[3] ].join(" "),
-            data: this.state.appliances
+            data: this.state.appliances,
+            totalAcTime: this.state.totalAcTime
           }))
 
           alert("Something Went Wrong \nMake Sure Your Internet Is On")
@@ -416,12 +434,19 @@ try {
     render() {
         
  return ( <React.Fragment>
-   
+
+
 <div className="mainFormAll">
+  
 <div className="form2-holder">
+
 <div className="mainForm">
+<div className="form-check form-switch ttwoz">
+<label className="form-check-label" for="flexSwitchCheckDefault">one appliance (EEOC)</label>
+  <input className="form-check-input" onChange={this.changeCurrentFrom} type="checkbox" id="flexSwitchCheckDefault"/>
+</div>
   {/* <h3 className="" style={{textTransform: "uppercase",fontSize: "medium", textAlign: "start", paddingTop:"10px", paddingBottom:"15px",fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Caliculate Your Home Appliance Energy Effiecieny</h3> */}
-  <div className="calculated">
+{this.state.oneCurrent ?  <ExtraCalc /> :<div className="calculated">
     {this.state.appliances.length > 0 ? 
       <table className="table">
       <thead>
@@ -447,8 +472,8 @@ try {
    : null}
    
   </div>
-
-<div className="maiholder">
+}
+{this.state.oneCurrent ?  null :<div className="maiholder">
 <IForm changeInitials={(info) => this.updateInitialForm(info)} />
 <div className="formHH">
 
@@ -576,10 +601,12 @@ try {
 </div>
 
 </div>
+}
 </div>
-<div className="alignEnd">
+{this.state.oneCurrent ? null :<div className="alignEnd">
 {!this.state.fetch ? <button className="btnn22" onClick={() => this.addDatabase() }> View Results </button> : <div className="paddingTop">  <div className="d-flex justify-content-center"> <div className="spinner-border" role="status">  <span className="sr-only">Loading...</span> </div> </div> </div> }
 </div> 
+}
 <Modal
 style={{
   overlay: {
@@ -611,8 +638,17 @@ isOpen={this.state.openModal} onRequestClose={() => {
     openModal: !oldModal
   })
 }}>   
+<div className="closeMod sticky-top" onClick={() => {
+  let oldModal = this.state.openModal
+  this.setState({
+    openModal: !oldModal
+  })
+}}>
+  +
+  </div>
 
-{this.state.openModal && this.state.appliances.length > 0 ? <Results appliances={this.state.appliances} results={this.state.results} /> : <h1> No Caliculations Made </h1>}
+
+  {this.state.openModal && this.state.appliances.length > 0 ? <Results appliances={this.state.appliances} results={this.state.results} /> : <h1> No Caliculations Made </h1>}
 
 </Modal>
 

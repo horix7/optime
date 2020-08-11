@@ -7,6 +7,11 @@ import About from "./components/about"
 import {BrowserRouter, Route} from 'react-router-dom'
 import Login from './components/loginAdmin'
 
+if(!localStorage.unsaved) {
+  console.log("hell yeah ", localStorage.unsaved)
+  localStorage.setItem("unsaved", "[]")
+}
+
 function App() {
   return (
     <BrowserRouter>
