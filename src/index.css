@@ -120,6 +120,7 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubun
 .ttwoz {
   text-align: start;
   text-transform: uppercase;
+  padding-bottom: 40px;
 }
 
 .oneForm label {
@@ -715,7 +716,7 @@ button:focus {
 
   .miaTwo {
     grid-template-columns: 100%;
-    padding: 15px;
+    padding: 5px;
   }
 
 
