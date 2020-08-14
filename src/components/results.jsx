@@ -5,8 +5,9 @@ let rresults = props => {
 
     return (
         <React.Fragment>
+            <main>
 
-            <div className="ResultsHeading">
+            <div className="ResultsHeading" id="ResultsHeading">
                 <h1 className="resHead">Your Home Energy Effiency Results</h1>
                 <div className="summary">
 
@@ -67,8 +68,10 @@ let rresults = props => {
 
                 </div>
             </div>
-            <button className="viewAll">View All</button>
-            <button className="viewAll">DownLoad Results </button>
+            </main>
+
+            <button className="viewAll" onClick={()  =>  window.print()}>Print This Data</button>
+            <button className="viewAll" onClick={() => props.download(document.querySelector("main"))}>DownLoad This Data </button>
 
 
 

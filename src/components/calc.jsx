@@ -5,6 +5,7 @@ import Modal from "react-modal"
 import Results from './results'
 import IForm from './initialForm'
 import ExtraCalc from './extraCalc'
+import html2pdf from  'html2pdf.js'
 
 Modal.setAppElement("#root")
 
@@ -49,6 +50,8 @@ class Calc extends Component {
         oneCurrent: !oldState.oneCurrent
       })
     }
+
+    worker = (element) =>  html2pdf().from(element).save()
 
     updateInitialForm = (parssed) => {
 
@@ -104,7 +107,6 @@ try {
 
   let dataAvggz = this.convertMoneyToWatt(averageEffiency)
 
-  alert(dataAvggz.input + " - " + ouputAv + ' - ' + totalAcTime)
 
   let efficiency =   parseInt(ouputAv) / parseInt(dataAvggz.input) 
   efficiency = efficiency * 100
@@ -117,9 +119,7 @@ try {
   }
 
 } catch(err) {
-  alert(JSON.stringify(err))
   console.error(err)
-  console.log(this.state.appliances)
   alert("You Have Zero Caliculation Made")
 
 }
@@ -195,7 +195,7 @@ try {
       this.setState({
         appli: newData
       })
-
+      
 
        })
         
@@ -632,6 +632,7 @@ content: {
     padding: '10px'
 }
 }}
+
 isOpen={this.state.openModal} onRequestClose={() => {
   let oldModal = this.state.openModal
   this.setState({
@@ -648,7 +649,7 @@ isOpen={this.state.openModal} onRequestClose={() => {
   </div>
 
 
-  {this.state.openModal && this.state.appliances.length > 0 ? <Results appliances={this.state.appliances} results={this.state.results} /> : <h1> No Caliculations Made </h1>}
+  {this.state.openModal && this.state.appliances.length > 0 ? <Results download={(elem) => this.worker(elem)} appliances={this.state.appliances} results={this.state.results} /> : <h1> No Caliculations Made </h1>}
 
 </Modal>
 

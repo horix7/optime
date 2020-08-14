@@ -4,7 +4,7 @@ import axios from 'axios'
 import demoData from '../adminDemo.json'
 import Modal from 'react-modal'
 import jsPDF from 'jspdf';
-
+import html2pdf from 'html2pdf.js'
 
 Modal.setAppElement("#root")
 
@@ -28,6 +28,9 @@ class Admin extends Component {
         openModal: false,
         incrementor: 0
     }
+
+    worker = (element) =>  html2pdf().from(element).save()
+
 
 
     dowLoadCsv = (objArray) => {
@@ -194,7 +197,7 @@ class Admin extends Component {
         return {
           id: Object.keys(this.state.caliculations).indexOf(element),
           display:  (
-            <div className="oneDataEl">
+            <div className="oneDataEl" id={Object.keys(this.state.caliculations).indexOf(element)}>
                 <React.Fragment>
                 
                 <div className="oneSTarcture">
@@ -362,8 +365,9 @@ class Admin extends Component {
 
                           {
                             Object.values(this.state.caliculationz).map(oneDate => (
-                          
-                          <div className="OneTable" key={Object.values(this.state.caliculationz).indexOf(oneDate)}>
+                          <main>
+
+                          <div id={Object.values(this.state.caliculationz).indexOf(oneDate)} className="OneTable" key={Object.values(this.state.caliculationz).indexOf(oneDate)}>
                           <h1 className="resHead">{Object.keys(this.state.caliculationz)[Object.values(this.state.caliculationz).indexOf(oneDate)]}</h1>
 
                           <table className="table">
@@ -394,7 +398,9 @@ class Admin extends Component {
                           </tbody>
                           </table>
                           </div>
+                          <button className="btn btn-link" style={{float: "right"}} onClick={() => this.worker(document.getElementById(Object.values(this.state.caliculationz).indexOf(oneDate)))} >Download this data</button>
                           
+                          </main>
                             ))
                           }
                           
@@ -412,7 +418,7 @@ class Admin extends Component {
                               },
                               content: {
                                   position: 'absolute',
-                                  top: '3%',
+                                  top: '10%',
                                   left: '3%',
                                   right: '3%',
                                   bottom: '3%',
@@ -439,8 +445,16 @@ class Admin extends Component {
                                    }}>
                                       +
                                  </div>
-
+                                <main id="main">
                                 {this.state.currentPresent}
+                                   
+
+
+                                </main>
+
+                                <button className="viewAll" onClick={()  =>  window.print()}>Print This Data</button>
+                                <button className="viewAll" onClick={() => this.worker(document.querySelector("#main"))}>DownLoad This Data </button>
+
 
                               </Modal>
 
