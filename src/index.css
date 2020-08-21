@@ -328,6 +328,30 @@ li {
   max-width: 18rem;
 }
 
+.messagge {
+  vertical-align: middle;
+  text-align:  start;
+  align-items: center;
+  text-transform: capitalize;
+  justify-content: center;
+  margin-top: 5%;
+  width: 50%;
+  margin-left: 25%;
+  padding: 5%;
+  background-color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: large;
+  /* color: rgb(125, 255, 125); */
+}
+
+.message2 span {
+  color: red;
+}
+
+.message span {
+  color: green;
+}
+
 .viewAll {
   background-color: rgb(1, 0, 0);
   border: none;
@@ -389,6 +413,20 @@ li {
   font-weight: bold;
 }
 
+.mesbtn {
+  background-color: transparent;
+  border: 1px solid black;
+  width: 60px;
+  border-radius: 5px;
+  height: 25px;
+  font-size: small;
+  color: black;
+}
+
+.mesbtn:hover {
+  background-color: black;
+  color: white;
+}
 
 .aboutSub {
   font-size: large;
@@ -428,7 +466,9 @@ li {
   margin-top: 20px;
 }
 body {
-  background-color: rgb(255, 255, 255)
+  background-color: rgb(255, 255, 255);
+  background-image: url(./tril1.png);
+  background-size: cover;
 }
 
 .form1-holder {
@@ -614,6 +654,13 @@ button:focus {
   .form1-holder {
       text-align: center;
       margin: 5% 25%;
+  }
+
+  .messagge {
+    margin-top: 5%;
+    width: 100%;
+    margin-left: 0%;
+    padding: 5%;
   }
 
   .eefc {

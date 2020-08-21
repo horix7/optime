@@ -39,7 +39,11 @@ class Calc extends Component {
       other: true,
       fetch: false,
       appli: [],
-      results: null,
+      results: {
+        "Home Total Energy Usage": 0,
+        "Home Average Energy Efficiency": 0,
+        "Energy Cost": 0
+      },
       openModal: false,
       initialInput: {}
     }
@@ -260,6 +264,15 @@ try {
 
     }
 
+
+    openSecondModal = () => {
+      let oldModal = this.state.openModal2
+      this.setState({
+        openModal2: !oldModal
+      })
+
+    }
+
     addDatabase = () => {
       if(Object.keys(this.state.initialInput).length === 4 && Object.values(this.state.initialInput).every(n => n !== null )) {
         
@@ -303,6 +316,10 @@ try {
             openModal: !oldModal,
             fetch: false
           })
+
+          setTimeout(() => {
+            this.openSecondModal()
+          }, 1500);
   
         }).catch(err => {
           localStorage.setItem("unsaved", JSON.stringify({
@@ -318,6 +335,11 @@ try {
             openModal: !oldModal,
             fetch: false
           })
+
+          setTimeout(() => {
+            this.openSecondModal()
+          }, 1500);
+
         })
       }else {
        setTimeout(() => {
@@ -647,6 +669,85 @@ isOpen={this.state.openModal} onRequestClose={() => {
 }}>
   +
   </div>
+
+  <Modal 
+  style={{
+    overlay: {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.54)'
+  },
+  content: {
+      position: 'absolute',
+      top: '10%',
+      left: '10%',
+      right: '10%',
+      bottom: '10%',
+      border: "none",
+      background: 'transparent',
+      overflow: 'auto',
+      WebkitOverflowScrolling: 'touch',
+      borderRadius: '5px',
+      outline: 'none',
+      padding: '10px'
+  }
+  }}
+  
+  isOpen={this.state.openModal2} onRequestClose={() => {
+    let oldModal = this.state.openModal2
+    this.setState({
+      openModal2: !oldModal
+    })
+  }}
+  >
+
+<div class="messagge">
+{parseInt(this.state.results["Home Average Energy Efficiency"]) > 50 ?  
+  <p className="message">
+  Congratulations, your home efficiency is above average. 
+  Your home and appliance usage is 
+   <span> ( {this.state.results["Home Average Energy Efficiency"].toFixed(2)} %) </span> 
+   efficient.
+
+      <br/>
+      <br/>
+    consult an Energy efficiency expert to improve your energt usage and save more money    
+    <br/>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdSTD62wTRLN-whZseKmTWQ3llIY0zDAbEWA2P6e6ScaAqi9g/viewform" style={{color:"blue", textDecoration:"underline"}} target="blank" > contact us </a>
+    </p>
+  
+: 
+<p className="message2">
+
+Your home and appliance efficiency is 
+<span> ({this.state.results["Home Average Energy Efficiency"].toFixed(2)} %) </span>  
+ below average . We can help you in making your home and appliance usage more efficient. 
+
+<br/>
+<br/>
+
+  consult an Energy efficiency expert to improve your energt usage and save more money 
+<br/>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSdSTD62wTRLN-whZseKmTWQ3llIY0zDAbEWA2P6e6ScaAqi9g/viewform" style={{color:"blue", textDecoration:"underline"}}  target="blank" > contact us </a>
+  </p>
+
+}
+<button className="mesbtn"  onClick={() => {
+    let oldModal = this.state.openModal2
+    this.setState({
+      openModal2: !oldModal
+    })
+  }}>
+  close
+</button>
+</div>
+
+
+
+  </Modal>
 
 
   {this.state.openModal && this.state.appliances.length > 0 ? <Results download={(elem) => this.worker(elem)} appliances={this.state.appliances} results={this.state.results} /> : <h1> No Caliculations Made </h1>}
