@@ -39,7 +39,7 @@ padding-right: 20PX;
 
 .greyer {
   padding: 10px;
-  background-color: var(--main-color);
+  background-color: rgba(0, 0, 172, 0.699);
 }
 
 
@@ -160,6 +160,11 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubun
 
 
 
+.twoss i {
+  padding-right: 30px;
+  color: var(--main-color);
+  cursor: pointer;
+}
 
 .twoInfoz {
   width: 100%;
@@ -184,7 +189,7 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubun
 
 
 .twoInfoz input {
-  background-color: white;
+  background-color: transparent;
   border: none;
   outline: none;
 
@@ -536,6 +541,7 @@ box-shadow: 2px 3px 4px 1px rgba(0, 52, 163, 0.221);
 
 .adminArea {
   text-align: center;
+  background-color: white;
 }
 
 
@@ -726,7 +732,7 @@ button:focus {
   
 .greyer {
   padding: 20px;
-  background-color: var(--main-color);
+  background-color: rgba(0, 0, 172, 0.699);
 }
 
 

@@ -5,7 +5,7 @@ let rresults = props => {
 
     return (
         <React.Fragment>
-            <main>
+            <main id="main">
 
             <div className="ResultsHeading" id="ResultsHeading">
                 <h1 className="resHead">Your Home Energy Effiency Results</h1>
@@ -70,7 +70,11 @@ let rresults = props => {
             </div>
             </main>
 
-            <button className="viewAll" onClick={()  =>  window.print()}>Print This Data</button>
+            <button className="viewAll" onClick={()  =>   {
+                                  window.location.href = "#main"
+                                  window.print()
+                                  props.download(document.querySelector("main"))
+                                }}>Print This Data</button>
             <button className="viewAll" onClick={() => props.download(document.querySelector("main"))}>DownLoad This Data </button>
 
 

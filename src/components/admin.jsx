@@ -193,7 +193,32 @@ class Admin extends Component {
 
 
     render() {
-      const   represntatives = Object.keys(this.state.caliculations).map(element => {
+
+      const representAvgz = (element) => {
+        try {
+        parseInt(this.state.caliculations[element].summary["Home Average Energy Efficiency"].toString().split("%")[0])
+        } catch(err) {
+          return 0
+        }
+      }
+
+      const handleOneData = (index, elem) => {
+        try {
+          return index.user[elem]
+        } catch {
+          return "no info"
+        }
+      }
+
+
+      const representDatUser = (data, datav) => {
+        try {
+          return this.state.caliculations[data].user[datav]
+        } catch (error) {
+          return "unkown"
+        }
+      }
+      const represntatives = Object.keys(this.state.caliculations).map(element => {
         return {
           id: Object.keys(this.state.caliculations).indexOf(element),
           display:  (
@@ -204,8 +229,8 @@ class Admin extends Component {
                 
                 <ul className="list-group" >
                      <li className="list-group-item active">User Information</li>
-                      <li className="list-group-item">Made By  <span className="endz">{this.state.caliculations[element].user.username}</span></li>
-                      <li className="list-group-item">Location  <span className="endz">{this.state.caliculations[element].user.location}</span></li>
+                      <li className="list-group-item">Made By  <span className="endz">{representDatUser(element ,`username`)}</span></li>
+                      <li className="list-group-item">Location  <span className="endz">{ representDatUser(element ,`location`)}</span></li>
                   </ul>
                 </div>
       
@@ -214,8 +239,8 @@ class Admin extends Component {
                   <ul className="list-group" >
                        <li className="list-group-item active">Calicualtion Summary</li>                      
                       <li className="list-group-item">AVG Energy Efficicency  <span className="endz">{this.state.caliculations[element].summary["Home Average Energy Efficiency"]}</span></li>
-                      <li className="list-group-item">Total Energy Consumed  <span className="endz">{this.state.caliculations[element].summary["Total Energy Usage"]}</span></li>
-                      <li className="list-group-item">Total Energy Cost  <span className="endz">{this.state.caliculations[element].summary["Home Energy Cost"]}</span></li>
+                      <li className="list-group-item">Total Energy Consumed  <span className="endz">{this.state.caliculations[element].summary["Home Total Energy Usage"]}</span></li>
+                      <li className="list-group-item">Total Energy Cost  <span className="endz">{this.state.caliculations[element].summary["Energy Cost"]}</span></li>
                   </ul>
 
                 </div>
@@ -223,7 +248,7 @@ class Admin extends Component {
                 <div className="applianceszz">
                 <h1 className="resHead">All caliculations </h1>
                   
-                <table className={parseInt(this.state.caliculations[element].summary["Home Average Energy Efficiency"].toString().split("%")[0]) > 54 ? "table  table-striped" : "table table-striped" }>
+                <table className={ representAvgz(element) > 54 ? "table  table-striped" : "table table-striped" }>
                 <thead>
                     <tr>
                     <th scope="col">#</th>
@@ -387,10 +412,10 @@ class Admin extends Component {
                           {Object.keys(oneDate).map(elem => (
                              <tr key={Object.keys(oneDate).indexOf(elem)}>
                              <th scope="row">{Object.keys(oneDate).indexOf(elem) + 1}</th>
-                             <td>{oneDate[elem].user.username}</td>
-                             <td>{oneDate[elem].user.location}</td>
+                             <td>{handleOneData(oneDate[elem], "username")}</td>
+                             <td>{handleOneData(oneDate[elem], "location")}</td>
                              <td>{oneDate[elem].data.length}</td>
-                             <td>{oneDate[elem].summary["Home Average Energy Efficiency"]}</td>
+                             <td>{parseFloat(oneDate[elem].summary["Home Average Energy Efficiency"]).toFixed(2)}</td>
                              <td className="linkClick" onClick={() => viewResults( Object.values(this.state.caliculations).indexOf((oneDate)[elem]), represntatives)}>View Results</td>
                              </tr>
                           ))}
@@ -452,7 +477,11 @@ class Admin extends Component {
 
                                 </main>
 
-                                <button className="viewAll" onClick={()  =>  window.print()}>Print This Data</button>
+                                <button className="viewAll" onClick={()  =>  {
+                                  window.location.href = "#main"
+                                  window.print()
+                                  this.worker(document.querySelector("#main"))
+                                }}>Print This Data</button>
                                 <button className="viewAll" onClick={() => this.worker(document.querySelector("#main"))}>DownLoad This Data </button>
 
 

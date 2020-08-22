@@ -45,6 +45,20 @@ class InitialForm extends Component {
   
 
     render() {
+
+        let newElectricityData = electricityCost.map(n => n.country)
+        newElectricityData.sort()
+        let newEle = []
+
+        newElectricityData.forEach(n => {
+           let  value = [...electricityCost]    
+           value = value.filter(mm => mm.country == n)
+            newEle.push({
+                country: n,
+                value: value[0].value
+            })
+        })
+
         return (
             <Fragment>
             <div className="">
@@ -70,7 +84,7 @@ class InitialForm extends Component {
 
                 <select name="countriesCost" id="electricity" onChange={this.selectChangeHandler}>
                     <option> Choose Country </option>
-                {electricityCost.map(elem => (
+                {newEle.map(elem => (
                         <option value={elem.country + "++" + elem.value} key={elem.country}>{elem.country}</option>
                     ))}
                 </select>

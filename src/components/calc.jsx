@@ -139,8 +139,13 @@ try {
         const name = prompt("FIRST TIME USER \nProvide Your Name to continue")
         const location = prompt("FIRST TIME USER \nProvide Your location (Country) to Make caliculation")
 
-       if(name !== "" && location !== "") {
+        if(name == null || location == null) {
+          this.checkUser()
+        }else  if(name.split(' ').join('').length > 1 && location.split(' ').join('').length  > 1) {
         localStorage.setItem("userInfo", JSON.stringify({username: name, location: location}))
+       }else {
+        this.checkUser()
+
        }
 
       }
@@ -464,7 +469,7 @@ try {
 
 <div className="mainForm">
 <div className="form-check form-switch ttwoz">
-<label className="form-check-label" for="flexSwitchCheckDefault">one appliance (EEOC)</label>
+<label className="form-check-label" htmlFor="flexSwitchCheckDefault">one appliance (EEOC)</label>
   <input className="form-check-input" onChange={this.changeCurrentFrom} type="checkbox" id="flexSwitchCheckDefault"/>
 </div>
   {/* <h3 className="" style={{textTransform: "uppercase",fontSize: "medium", textAlign: "start", paddingTop:"10px", paddingBottom:"15px",fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Caliculate Your Home Appliance Energy Effiecieny</h3> */}
@@ -626,7 +631,10 @@ try {
 }
 </div>
 {this.state.oneCurrent ? null :<div className="alignEnd">
-{!this.state.fetch ? <button className="btnn22" onClick={() => this.addDatabase() }> View Results </button> : <div className="paddingTop">  <div className="d-flex justify-content-center"> <div className="spinner-border" role="status">  <span className="sr-only">Loading...</span> </div> </div> </div> }
+{!this.state.fetch ? <div className="twoss"> <i className="fas fa-redo" onClick={() => this.setState({
+  appliances: [],
+  totalAcTime: []
+})}></i>   <button className="btnn22" onClick={() => this.addDatabase() }> View Results </button>   </div>: <div className="paddingTop">  <div className="d-flex justify-content-center"> <div className="spinner-border" role="status">  <span className="sr-only">Loading...</span> </div> </div> </div> }
 </div> 
 }
 <Modal
